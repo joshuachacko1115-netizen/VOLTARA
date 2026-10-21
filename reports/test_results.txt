@@ -1,0 +1,39 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.14.6, pytest-9.1.1, pluggy-1.7.0 -- /Users/samarthmaru/Desktop/VOLTARA/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /Users/samarthmaru/Desktop/VOLTARA
+plugins: anyio-4.15.1, platformdirs-4.13.5
+collecting ... collected 30 items
+
+tests/test_censored_rul.py::test_conditional_mean_imputation_is_above_the_bound PASSED [  3%]
+tests/test_censored_rul.py::test_censored_targets_never_imputed_below_their_bound PASSED [  6%]
+tests/test_censored_rul.py::test_without_censored_rows_it_equals_the_plain_model PASSED [ 10%]
+tests/test_censored_rul.py::test_fit_is_reproducible_with_a_parallel_forest PASSED [ 13%]
+tests/test_inference.py::test_predict_returns_all_outputs[battery_aging-B0005] PASSED [ 16%]
+tests/test_inference.py::test_predict_returns_all_outputs[randomized_usage-RW9] PASSED [ 20%]
+tests/test_inference.py::test_range_in_km_requires_explicit_assumptions PASSED [ 23%]
+tests/test_inference.py::test_without_capacity_uses_predicted_soh_and_says_so PASSED [ 26%]
+tests/test_inference.py::test_short_history_skips_anomaly_detection_and_missing_columns_are_reported PASSED [ 30%]
+tests/test_inference.py::test_trend_features_are_causal PASSED           [ 33%]
+tests/test_inference.py::test_censoring_aware_rul_variant_loads_and_says_so PASSED [ 36%]
+tests/test_models_and_features.py::test_discharge_capacity_matches_coulomb_counting PASSED [ 40%]
+tests/test_models_and_features.py::test_short_gap_in_discharge_is_interpolated PASSED [ 43%]
+tests/test_models_and_features.py::test_scaler_and_imputer_are_fitted_on_training_cells_only PASSED [ 46%]
+tests/test_models_and_features.py::test_range_scales_linearly_with_energy PASSED [ 50%]
+tests/test_preprocessing.py::test_nan_run_lengths PASSED                 [ 53%]
+tests/test_preprocessing.py::test_interpolates_only_short_interior_gaps PASSED [ 56%]
+tests/test_preprocessing.py::test_edge_gaps_not_extrapolated PASSED      [ 60%]
+tests/test_preprocessing.py::test_moving_average_is_causal PASSED        [ 63%]
+tests/test_preprocessing.py::test_hampel_flags_spike_not_trend PASSED    [ 66%]
+tests/test_preprocessing.py::test_noise_std_recovers_white_noise_on_a_trend PASSED [ 70%]
+tests/test_preprocessing.py::test_causal_slope_uses_only_past PASSED     [ 73%]
+tests/test_targets_and_splits.py::test_eol_position_and_interpolation PASSED [ 76%]
+tests/test_targets_and_splits.py::test_eol_ignores_single_noisy_dip PASSED [ 80%]
+tests/test_targets_and_splits.py::test_rul_censoring_and_post_eol PASSED [ 83%]
+tests/test_targets_and_splits.py::test_leave_cells_out_has_no_cell_overlap PASSED [ 86%]
+tests/test_targets_and_splits.py::test_leave_groups_out_has_no_group_overlap PASSED [ 90%]
+tests/test_targets_and_splits.py::test_chronological_split_is_time_ordered PASSED [ 93%]
+tests/test_targets_and_splits.py::test_check_split_catches_leakage PASSED [ 96%]
+tests/test_targets_and_splits.py::test_metrics PASSED                    [100%]
+
+============================== 30 passed ==============================

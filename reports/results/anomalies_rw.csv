@@ -1,0 +1,54 @@
+cell,check_id,efc,soh,anomaly_score,top_deviations,context
+RW20,1,2.9313304958210296,1.0021910813400623,0.6669753298933861,ref_t_max +10.3σ; interval_rw_i_mean +8.7σ; ref_chg_cv_duration_s -8.3σ,early-life check (cells often settle in the first checks)
+RW11,1,57.208023734056844,0.9812509775303295,0.666046832228447,ref_chg_cc_duration_s +15.7σ; r_pulse_ohm -6.1σ; soh +5.0σ,early-life check (cells often settle in the first checks)
+RW20,2,49.3109243812756,0.9599630275408292,0.64006389597853,ref_t_max +9.9σ; ref_chg_cv_duration_s -8.3σ; ref_chg_cc_duration_s +5.7σ,early-life check (cells often settle in the first checks)
+RW26,1,26.546195425095668,0.969550388801939,0.6323063342979189,r_operational_ohm -14.6σ; ref_chg_cv_duration_s -5.6σ; interval_rw_t_mean +3.9σ,early-life check (cells often settle in the first checks)
+RW20,4,115.56113806291167,0.9095890303731231,0.6273949806118687,ref_t_max +11.2σ; ref_chg_cv_duration_s -7.3σ; ref_chg_cc_duration_s +4.9σ,no recorded context - worth inspecting
+RW20,3,74.53982231302261,0.9389439105355201,0.6259310589383086,ref_t_max +8.4σ; ref_chg_cv_duration_s -8.0σ; ref_chg_cc_duration_s +5.4σ,early-life check (cells often settle in the first checks)
+RW10,1,54.968145210048746,0.9784479629888425,0.6194088852511477,ref_chg_cc_duration_s +13.8σ; ref_t_max -5.2σ; r_pulse_ohm -4.7σ,early-life check (cells often settle in the first checks)
+RW9,1,54.11804247894089,0.9744806801719116,0.6186640308693889,ref_chg_cc_duration_s +16.9σ; r_pulse_ohm -3.8σ; ref_t_max -3.6σ,early-life check (cells often settle in the first checks)
+RW11,2,112.30837077666625,0.9650137068435143,0.6183985494169417,ref_chg_cc_duration_s +14.8σ; r_pulse_ohm -4.9σ; soh +4.8σ,early-life check (cells often settle in the first checks)
+RW11,0,0.0,1.0,0.6158319739457395,ref_chg_cc_duration_s +17.8σ; r_pulse_ohm -6.1σ; soh +5.3σ,early-life check (cells often settle in the first checks)
+RW11,3,164.9471690971396,0.9351362403952991,0.6062621174077906,ref_chg_cc_duration_s +12.9σ; r_pulse_ohm -4.9σ; soh +4.4σ,early-life check (cells often settle in the first checks)
+RW11,4,212.4622567461106,0.9071442561601808,0.5868019641977064,ref_chg_cc_duration_s +12.0σ; r_pulse_ohm -4.0σ; soh +4.0σ,no recorded context - worth inspecting
+RW9,2,105.86716706901433,0.9453104679064088,0.5838147895217175,ref_chg_cc_duration_s +14.9σ; ref_t_max -3.5σ; r_pulse_ohm -3.4σ,early-life check (cells often settle in the first checks)
+RW9,0,0.0,1.0,0.5788923217413716,ref_chg_cc_duration_s ≥+20.0σ; r_pulse_ohm -3.8σ; ref_chg_cv_duration_s -3.4σ,early-life check (cells often settle in the first checks)
+RW10,0,0.0,1.0,0.5776910297291566,ref_chg_cc_duration_s +16.1σ; ref_t_max -4.9σ; r_pulse_ohm -4.7σ,early-life check (cells often settle in the first checks)
+RW10,3,151.02874376700197,0.9117019022865647,0.5771120450365971,ref_chg_cc_duration_s +10.7σ; ref_t_max -5.4σ; r_pulse_ohm -3.8σ,early-life check (cells often settle in the first checks)
+RW9,3,150.8396328591618,0.911360857317682,0.5725447355232829,ref_chg_cc_duration_s +13.6σ; ref_t_max -3.5σ; r_pulse_ohm -3.4σ,early-life check (cells often settle in the first checks)
+RW10,2,103.99161762614204,0.9453971298202594,0.5704994925934457,ref_chg_cc_duration_s +11.8σ; ref_t_max -5.1σ; r_pulse_ohm -3.8σ,early-life check (cells often settle in the first checks)
+RW1,1,36.22397781295783,0.9802670752876318,0.5631304373608775,r_pulse_ohm +8.2σ; ref_t_max -5.4σ; r_operational_ohm +2.5σ,early-life check (cells often settle in the first checks)
+RW6,10,260.05965821385416,0.6794846599462168,0.5568898587785285,cap_resid_prev3 -6.7σ; ref_t_max +5.5σ; r_operational_ohm +3.0σ,no recorded context - worth inspecting
+RW1,23,516.8596785059119,0.5832750085057041,0.5543205578868544,cap_resid_prev3 -4.4σ; interval_rw_i_mean -3.9σ; ref_t_max +3.3σ,no recorded context - worth inspecting
+RW26,2,50.34515733809078,0.9530525699746526,0.5537411689089732,r_operational_ohm -11.7σ; interval_rw_t_mean +3.6σ; r_pulse_ohm -3.0σ,early-life check (cells often settle in the first checks)
+RW22,8,285.22292716433486,0.6843131991933195,0.5519456351791442,interval_rw_i_mean -6.9σ; ref_chg_cv_duration_s -3.0σ; interval_rw_t_max -2.8σ,no recorded context - worth inspecting
+RW10,4,194.86388162173898,0.8914739157881159,0.5442704838743612,ref_chg_cc_duration_s +9.9σ; ref_t_max -4.8σ; r_pulse_ohm -3.1σ,no recorded context - worth inspecting
+RW11,38,936.9654113448565,0.45399672594411083,0.5441880147986733,ref_t_max +8.3σ; r_pulse_ohm +3.5σ; soh -2.2σ,no recorded context - worth inspecting
+RW11,5,256.55475102519813,0.8457053142903435,0.5436461043827547,ref_chg_cc_duration_s +9.5σ; r_pulse_ohm -4.0σ; soh +3.2σ,no recorded context - worth inspecting
+RW9,4,194.63567774059572,0.8847866727225927,0.5430345503744097,ref_chg_cc_duration_s +12.2σ; ref_t_max -3.4σ; r_pulse_ohm -2.7σ,no recorded context - worth inspecting
+RW20,5,153.42277481437117,0.8787736467512439,0.5420975925881539,ref_chg_cv_duration_s -7.4σ; ref_chg_cc_duration_s +4.6σ; ref_t_max +3.1σ,no recorded context - worth inspecting
+RW6,9,244.55161874771775,0.7287295594073002,0.5368931415550356,ref_t_max +8.6σ; cap_resid_prev3 -3.7σ; r_operational_ohm +2.0σ,no recorded context - worth inspecting
+RW9,5,233.71669483732248,0.8406944835087001,0.5360867327423631,ref_chg_cc_duration_s +10.7σ; r_pulse_ohm -2.7σ; interval_rw_t_mean -2.6σ,no recorded context - worth inspecting
+RW14,1,47.87906859793138,0.9644332069664197,0.5345699492169506,ref_chg_cc_duration_s +12.5σ; ref_chg_cv_duration_s -3.8σ; ref_t_max +2.5σ,early-life check (cells often settle in the first checks)
+RW10,5,235.9168196076908,0.8372321175180584,0.5328124970043794,ref_chg_cc_duration_s +8.2σ; r_pulse_ohm -3.1σ; cap_resid_prev3 -2.5σ,no recorded context - worth inspecting
+RW7,1,45.38745620620131,0.973738478865406,0.5295162188029443,ref_t_max -11.1σ; interval_rw_t_mean -4.2σ; r_operational_ohm -1.4σ,early-life check (cells often settle in the first checks)
+RW17,1,2.922063507690015,1.0026357949563953,0.5269497120680313,ref_t_max +7.5σ; interval_rw_i_mean -3.1σ; ref_chg_cc_duration_s +2.4σ,early-life check (cells often settle in the first checks)
+RW8,1,43.34044144771466,0.9538996910045062,0.5265968908423013,ref_t_max -7.7σ; interval_rw_t_mean -3.1σ; interval_rw_t_max -2.8σ,early-life check (cells often settle in the first checks)
+RW20,0,0.0,1.0,0.5260785126874378,ref_chg_cv_duration_s -7.7σ; ref_chg_cc_duration_s +6.1σ; r_pulse_ohm -2.6σ,early-life check (cells often settle in the first checks)
+RW19,3,109.90388129262041,0.9120786188350622,0.5221388261225021,ref_t_max +13.7σ; interval_rw_t_mean +3.1σ; interval_rw_t_max +2.1σ,early-life check (cells often settle in the first checks)
+RW26,3,71.85985099995403,0.93821003122496,0.5194135126182419,r_operational_ohm -9.0σ; interval_rw_t_mean +3.4σ; r_pulse_ohm -2.1σ,early-life check (cells often settle in the first checks)
+RW11,37,924.589225587261,0.45652235574744654,0.5182789329633415,ref_t_max +5.6σ; r_pulse_ohm +3.5σ; soh -2.1σ,no recorded context - worth inspecting
+RW14,0,0.0,1.0,0.5173213135736571,ref_chg_cc_duration_s +13.5σ; ref_chg_cv_duration_s -3.9σ; r_pulse_ohm -2.5σ,early-life check (cells often settle in the first checks)
+RW19,2,67.4243959299098,0.9396235436975423,0.5172638428957395,ref_t_max +10.3σ; interval_rw_t_mean +3.0σ; interval_rw_t_max +2.1σ,early-life check (cells often settle in the first checks)
+RW8,3,115.02398676582975,0.8811796038492409,0.5172175488552597,ref_t_max -7.3σ; interval_rw_t_mean -3.2σ; r_pulse_ohm -2.4σ,early-life check (cells often settle in the first checks)
+RW20,6,187.75599813767823,0.8469654599737905,0.5162402359013641,ref_chg_cv_duration_s -6.3σ; ref_chg_cc_duration_s +4.0σ; r_operational_ohm -2.6σ,no recorded context - worth inspecting
+RW9,6,271.6745461689806,0.8176901280788569,0.5153403489287975,ref_chg_cc_duration_s +9.7σ; interval_rw_t_max +2.8σ; r_pulse_ohm -2.2σ,no recorded context - worth inspecting
+RW5,19,426.3804196067453,0.5752173546694052,0.5114869025368707,interval_rw_t_mean +3.3σ; interval_rw_i_mean -2.8σ; ref_t_max +2.3σ,no recorded context - worth inspecting
+RW7,2,85.28113157119029,0.9447337319243605,0.5096798075421493,ref_t_max -9.0σ; interval_rw_t_mean -3.9σ; interval_rw_t_max -1.5σ,early-life check (cells often settle in the first checks)
+RW7,3,121.74119721218032,0.9146274603726362,0.5096555795870567,ref_t_max -9.7σ; interval_rw_t_mean -3.8σ; r_pulse_ohm -1.3σ,early-life check (cells often settle in the first checks)
+RW1,2,66.7970316877399,0.9565216183750982,0.509554190768025,ref_t_max -5.0σ; r_pulse_ohm +3.0σ; r_operational_ohm +2.6σ,early-life check (cells often settle in the first checks)
+RW11,6,293.3534911667101,0.8020972922814147,0.5092728373471198,ref_chg_cc_duration_s +8.3σ; cap_resid_prev3 -3.3σ; r_pulse_ohm -3.2σ,no recorded context - worth inspecting
+RW22,9,302.65381401312715,0.6666096162215148,0.5081209455825303,interval_rw_t_max -4.4σ; r_pulse_ohm +1.6σ; interval_rw_t_mean -1.6σ,no recorded context - worth inspecting
+RW23,10,331.5721340123719,0.740198448932382,0.5031959032866073,ref_t_max +4.9σ; interval_rw_t_mean -3.1σ; ref_chg_cv_duration_s +2.9σ,no recorded context - worth inspecting
+RW8,2,80.16985732277347,0.9170337737145734,0.502860601559363,ref_t_max -7.5σ; interval_rw_t_mean -2.8σ; r_pulse_ohm -2.4σ,early-life check (cells often settle in the first checks)
+RW7,4,155.99784679157403,0.8871149443826474,0.5018045845916187,ref_t_max -9.8σ; interval_rw_t_mean -3.3σ; interval_rw_i_mean +1.7σ,no recorded context - worth inspecting

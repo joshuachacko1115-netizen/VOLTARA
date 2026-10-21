@@ -1,0 +1,18 @@
+{
+  "features": [
+    "soh",
+    "cap_resid_prev3",
+    "ref_chg_cc_duration_s",
+    "ref_chg_cv_duration_s",
+    "r_operational_ohm",
+    "r_pulse_ohm",
+    "interval_rw_t_mean",
+    "interval_rw_t_max",
+    "interval_rw_i_mean",
+    "ref_t_max"
+  ],
+  "input": "robust z-score of each feature within one battery's history",
+  "n_training_rows": 620,
+  "n_estimators": 500,
+  "contamination": "auto"
+}

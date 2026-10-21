@@ -1,0 +1,4 @@
+,pred Low,pred Medium,pred High
+true Low,38,88,42
+true Medium,21,105,30
+true High,15,45,102

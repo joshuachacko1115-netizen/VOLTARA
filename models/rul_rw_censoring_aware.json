@@ -1,0 +1,95 @@
+{
+  "dataset": "Randomized Usage",
+  "model": "Gradient Boosting, + censored, Buckley-James",
+  "target": "rul_efc",
+  "unit": "EFC",
+  "features": [
+    "soh_roll_med3",
+    "fade_slope_4",
+    "fade_slope_8",
+    "efc",
+    "elapsed_days",
+    "interval_rw_i_mean",
+    "interval_rw_t_mean",
+    "interval_frac_hit_vmin",
+    "r_operational_ohm",
+    "r_pulse_ohm",
+    "ref_chg_cc_duration_s",
+    "ambient_40c",
+    "dist_skewed_high",
+    "dist_skewed_low",
+    "dist_uniform"
+  ],
+  "censored_cells": [
+    "RW26",
+    "RW27",
+    "RW28"
+  ],
+  "feature_ranges": {
+    "soh_roll_med3": [
+      0.8159574870069171,
+      1.0
+    ],
+    "fade_slope_4": [
+      -0.11751558723230104,
+      -0.018917681908630628
+    ],
+    "fade_slope_8": [
+      -0.11090343686520904,
+      -0.02729396035647308
+    ],
+    "efc": [
+      0.0,
+      442.381189843101
+    ],
+    "elapsed_days": [
+      0.11242280092592592,
+      91.09861666666666
+    ],
+    "interval_rw_i_mean": [
+      1.7866083662628387,
+      3.4659166982281895
+    ],
+    "interval_rw_t_mean": [
+      22.45865825354269,
+      48.60099718137985
+    ],
+    "interval_frac_hit_vmin": [
+      0.0108022172270139,
+      0.6752776493553188
+    ],
+    "r_operational_ohm": [
+      0.07150553507716466,
+      0.13512914348309996
+    ],
+    "r_pulse_ohm": [
+      0.07800560316500288,
+      0.1382332243706242
+    ],
+    "ref_chg_cc_duration_s": [
+      951.7,
+      2616.599999999999
+    ],
+    "ambient_40c": [
+      0.0,
+      1.0
+    ],
+    "dist_skewed_high": [
+      0.0,
+      1.0
+    ],
+    "dist_skewed_low": [
+      0.0,
+      1.0
+    ],
+    "dist_uniform": [
+      0.0,
+      1.0
+    ]
+  },
+  "loco_MAE": 34.22437577247913,
+  "loco_RMSE": 52.1907934108311,
+  "loco_R2": 0.7054891574837374,
+  "censored_frac_above_bound": 0.8108108108108109,
+  "censored_mean_shortfall": 5.892668411281563
+}

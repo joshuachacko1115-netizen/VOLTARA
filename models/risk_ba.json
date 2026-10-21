@@ -1,0 +1,15 @@
+{
+  "t1": 28.42292247635997,
+  "t2": 72.97367191330396,
+  "r1": 26.504999999999995,
+  "r2": 59.0,
+  "dataset": "Battery Aging",
+  "unit": "cycles",
+  "soh_col": "soh_roll_med5",
+  "slope_col": "fade_slope_20",
+  "slope_to_soh_per_unit": 0.005,
+  "eol_soh": 0.8,
+  "margin_high": 0.03,
+  "margin_low": 0.1,
+  "note": "t1/t2: terciles of projected life; r1/r2: terciles of true RUL; project choices, not engineering limits"
+}

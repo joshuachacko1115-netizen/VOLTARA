@@ -1,0 +1,4 @@
+source,rows,power_limited_rows,median_energy_retention_minus_capacity_soh,same_excluding_power_limited
+BA: 2 A to 2.7 V,1357.0,0.0,-0.0027086811186008974,-0.0027086811186008974
+RW: 1 A to 3.2 V,620.0,0.0,-0.012125582176048422,-0.012125582176048422
+RW: 15 W constant power,293.0,148.0,-0.40145666153330445,-0.13997498450399326

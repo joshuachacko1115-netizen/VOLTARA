@@ -1,0 +1,15 @@
+{
+  "t1": 76.56429214153532,
+  "t2": 154.11765958157875,
+  "r1": 74.91646533806518,
+  "r2": 175.46638171957056,
+  "dataset": "Randomized Usage",
+  "unit": "EFC",
+  "soh_col": "soh_roll_med3",
+  "slope_col": "fade_slope_8",
+  "slope_to_soh_per_unit": 0.01,
+  "eol_soh": 0.8,
+  "margin_high": 0.03,
+  "margin_low": 0.1,
+  "note": "t1/t2: terciles of projected life; r1/r2: terciles of true RUL; project choices, not engineering limits"
+}

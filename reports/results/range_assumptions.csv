@@ -1,0 +1,7 @@
+,value
+cells_in_series,96.0
+cells_in_parallel,30.0
+usable_window,0.9
+consumption_wh_per_km,150.0
+auxiliary_wh_per_km,10.0
+temperature_factor,1.0

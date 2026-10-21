@@ -1,0 +1,9 @@
+# Data: raw NASA ZIPs and everything derived from them (2.5 GB); rebuild with `python -m src.run_pipeline`.
+data/
+!data/**/.gitkeep
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
+.streamlit/secrets.toml

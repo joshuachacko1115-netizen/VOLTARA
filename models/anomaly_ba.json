@@ -1,0 +1,20 @@
+{
+  "features": [
+    "capacity_ah_2v7",
+    "cap_resid_prev5",
+    "v_at_60s",
+    "v_at_300s",
+    "dis_t_start",
+    "t_rise_300s",
+    "dis_t_max",
+    "dis_v_std",
+    "chg_cc_duration_s",
+    "chg_cv_duration_s",
+    "chg_t_max",
+    "i_set"
+  ],
+  "input": "robust z-score of each feature within one battery's history",
+  "n_training_rows": 2780,
+  "n_estimators": 500,
+  "contamination": "auto"
+}

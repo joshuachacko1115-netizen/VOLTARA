@@ -1,0 +1,19 @@
+dataset,model,cell,rows,frac_pred_above_lower_bound,mean_shortfall
+Battery Aging,"Random Forest, + censored, Buckley-James",B0029,39,1.0,0.0
+Battery Aging,"Random Forest, + censored, Buckley-James",B0031,39,1.0,0.0
+Battery Aging,"Random Forest, + censored, Buckley-James",B0032,39,1.0,0.0
+Battery Aging,"Random Forest, + censored, bound",B0029,39,0.9230769230769231,0.015140965743581475
+Battery Aging,"Random Forest, + censored, bound",B0031,39,1.0,0.0
+Battery Aging,"Random Forest, + censored, bound",B0032,39,1.0,0.0
+Battery Aging,"Random Forest, labelled only",B0029,39,0.9230769230769231,0.06503210962826318
+Battery Aging,"Random Forest, labelled only",B0031,39,1.0,0.0
+Battery Aging,"Random Forest, labelled only",B0032,39,1.0,0.0
+Randomized Usage,"Gradient Boosting, + censored, Buckley-James",RW26,14,1.0,0.0
+Randomized Usage,"Gradient Boosting, + censored, Buckley-James",RW27,12,0.4166666666666667,18.16906093478482
+Randomized Usage,"Gradient Boosting, + censored, Buckley-James",RW28,11,1.0,0.0
+Randomized Usage,"Gradient Boosting, + censored, bound",RW26,14,1.0,0.0
+Randomized Usage,"Gradient Boosting, + censored, bound",RW27,12,0.25,22.510340562173635
+Randomized Usage,"Gradient Boosting, + censored, bound",RW28,11,0.9090909090909091,0.0021522016637243787
+Randomized Usage,"Gradient Boosting, labelled only",RW26,14,1.0,0.0
+Randomized Usage,"Gradient Boosting, labelled only",RW27,12,0.16666666666666666,25.502784152947758
+Randomized Usage,"Gradient Boosting, labelled only",RW28,11,0.6363636363636364,2.9688169910820013

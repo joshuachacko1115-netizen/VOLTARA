@@ -1,0 +1,7 @@
+cell,rows,frac_pred_above_lower_bound,dataset
+B0029,39,0.9230769230769231,Battery Aging
+B0031,39,1.0,Battery Aging
+B0032,39,1.0,Battery Aging
+RW26,14,1.0,Randomized Usage
+RW27,12,0.16666666666666666,Randomized Usage
+RW28,11,0.6363636363636364,Randomized Usage

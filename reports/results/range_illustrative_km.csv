@@ -1,0 +1,4 @@
+source,energy retention 100 %,energy retention 90 %,energy retention 80 %,energy retention 70 %
+BA: 2 A to 2.7 V,101.0,91.0,81.0,71.0
+RW: 1 A to 3.2 V,128.0,115.0,102.0,89.0
+RW: 15 W constant power,84.0,75.0,67.0,59.0

@@ -1,0 +1,137 @@
+cell,cycle_number,capacity_ah_2v7,anomaly_score,top_deviations,context
+B0039,10,0.42677452999363547,0.7483931862521792,capacity_ah_2v7 ≤-20.0σ; v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ,"run at a different test condition from this cell's main one (24 °C, 4.0 A)"
+B0038,6,1.013116944335064,0.7432121711365484,capacity_ah_2v7 ≤-20.0σ; v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ,"run at a different test condition from this cell's main one (24 °C, 4.0 A)"
+B0039,11,0.43163679219206935,0.7430391125728706,capacity_ah_2v7 ≤-20.0σ; v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ,"run at a different test condition from this cell's main one (24 °C, 4.0 A)"
+B0040,12,0.7064898521770487,0.74238983015824,capacity_ah_2v7 ≤-20.0σ; v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ,"run at a different test condition from this cell's main one (24 °C, 4.0 A)"
+B0040,6,0.7330366309545666,0.742368996195959,capacity_ah_2v7 ≤-20.0σ; v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ,"run at a different test condition from this cell's main one (24 °C, 4.0 A)"
+B0039,9,0.4442541263146637,0.741611988097422,capacity_ah_2v7 ≤-20.0σ; v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ,"run at a different test condition from this cell's main one (24 °C, 4.0 A)"
+B0039,12,0.3994406479447551,0.7411044716470684,capacity_ah_2v7 ≤-20.0σ; v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ,"fails data-quality rules: outlier | run at a different test condition from this cell's main one (24 °C, 4.0 A)"
+B0038,5,1.028495802313215,0.7405811763684841,capacity_ah_2v7 ≤-20.0σ; v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ,"run at a different test condition from this cell's main one (24 °C, 4.0 A)"
+B0040,2,0.7831600883527143,0.7400479681422236,capacity_ah_2v7 ≤-20.0σ; v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ,"run at a different test condition from this cell's main one (24 °C, 4.0 A)"
+B0039,3,0.15657713686246508,0.7396017338300966,capacity_ah_2v7 ≤-20.0σ; v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ,"fails data-quality rules: low_capacity | run at a different test condition from this cell's main one (24 °C, 4.0 A)"
+B0038,12,0.9990013155756682,0.7393912075355462,capacity_ah_2v7 ≤-20.0σ; v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ,"run at a different test condition from this cell's main one (24 °C, 4.0 A)"
+B0038,10,1.0152993408444682,0.7390209744483938,capacity_ah_2v7 ≤-20.0σ; v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ,"run at a different test condition from this cell's main one (24 °C, 4.0 A)"
+B0038,11,1.0019297924774593,0.7389002423039176,capacity_ah_2v7 ≤-20.0σ; v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ,"run at a different test condition from this cell's main one (24 °C, 4.0 A)"
+B0038,9,1.0295250437410104,0.7382471815832022,capacity_ah_2v7 ≤-20.0σ; v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ,"run at a different test condition from this cell's main one (24 °C, 4.0 A)"
+B0040,10,0.7237858907329558,0.7380826723397453,capacity_ah_2v7 ≤-20.0σ; v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ,"run at a different test condition from this cell's main one (24 °C, 4.0 A)"
+B0038,4,1.0532156978240377,0.7366831477960246,capacity_ah_2v7 ≤-20.0σ; v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ,"run at a different test condition from this cell's main one (24 °C, 4.0 A)"
+B0040,7,0.7713477841049916,0.7366443941878131,capacity_ah_2v7 ≤-20.0σ; v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ,"run at a different test condition from this cell's main one (24 °C, 4.0 A)"
+B0039,6,0.4569795373665866,0.7366053933236599,capacity_ah_2v7 ≤-20.0σ; v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ,"run at a different test condition from this cell's main one (24 °C, 4.0 A)"
+B0040,3,0.7715087826349392,0.7363454127682311,capacity_ah_2v7 ≤-20.0σ; v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ,"run at a different test condition from this cell's main one (24 °C, 4.0 A)"
+B0038,8,1.050422773299973,0.7362318659147489,capacity_ah_2v7 ≤-20.0σ; v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ,"run at a different test condition from this cell's main one (24 °C, 4.0 A)"
+B0040,5,0.7539657185617655,0.7357478139220454,capacity_ah_2v7 ≤-20.0σ; v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ,"run at a different test condition from this cell's main one (24 °C, 4.0 A)"
+B0038,7,1.0626646373939799,0.7356343592202456,capacity_ah_2v7 ≤-20.0σ; v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ,"run at a different test condition from this cell's main one (24 °C, 4.0 A)"
+B0039,8,0.4506555900861043,0.7350970221591009,capacity_ah_2v7 ≤-20.0σ; v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ,"run at a different test condition from this cell's main one (24 °C, 4.0 A)"
+B0038,2,1.0902257907797435,0.7339510292668909,capacity_ah_2v7 ≤-20.0σ; v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ,"run at a different test condition from this cell's main one (24 °C, 4.0 A)"
+B0039,4,0.4724076259908574,0.7339190671518437,capacity_ah_2v7 ≤-20.0σ; v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ,"run at a different test condition from this cell's main one (24 °C, 4.0 A)"
+B0039,5,0.462978533354572,0.7339190671518437,capacity_ah_2v7 ≤-20.0σ; v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ,"run at a different test condition from this cell's main one (24 °C, 4.0 A)"
+B0040,4,0.7637400099013886,0.73314324321637,capacity_ah_2v7 ≤-20.0σ; v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ,"run at a different test condition from this cell's main one (24 °C, 4.0 A)"
+B0038,3,1.074647189004835,0.7330615733202243,capacity_ah_2v7 ≤-20.0σ; v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ,"run at a different test condition from this cell's main one (24 °C, 4.0 A)"
+B0040,11,0.7332780244841943,0.73157233439049,capacity_ah_2v7 ≤-20.0σ; v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ,"run at a different test condition from this cell's main one (24 °C, 4.0 A)"
+B0040,8,0.7590259925324,0.7314733467220245,capacity_ah_2v7 ≤-20.0σ; v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ,"run at a different test condition from this cell's main one (24 °C, 4.0 A)"
+B0040,9,0.7473654161684996,0.7303853659633734,capacity_ah_2v7 ≤-20.0σ; v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ,"run at a different test condition from this cell's main one (24 °C, 4.0 A)"
+B0039,7,0.4573306041634861,0.7278655470263778,capacity_ah_2v7 ≤-20.0σ; v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ,"run at a different test condition from this cell's main one (24 °C, 4.0 A)"
+B0039,2,0.4673481767994384,0.7243487572331703,capacity_ah_2v7 ≤-20.0σ; v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ,"run at a different test condition from this cell's main one (24 °C, 4.0 A)"
+B0040,47,0.5432074665120504,0.7228965637473872,capacity_ah_2v7 ≤-20.0σ; v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ,"fails data-quality rules: outlier | run at a different test condition from this cell's main one (44 °C, 4.0 A)"
+B0038,47,1.5117199508935573,0.7202614948040906,capacity_ah_2v7 ≤-20.0σ; cap_resid_prev5 ≤-20.0σ; v_at_60s ≤-20.0σ,"run at a different test condition from this cell's main one (44 °C, 4.0 A)"
+B0039,47,1.3082277543436314,0.7143000032631641,cap_resid_prev5 ≤-20.0σ; v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ,"run at a different test condition from this cell's main one (44 °C, 4.0 A)"
+B0039,1,0.10411196137623385,0.7077166563277906,capacity_ah_2v7 ≤-20.0σ; v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ,"fails data-quality rules: low_capacity | run at a different test condition from this cell's main one (24 °C, 4.0 A)"
+B0038,1,0.8876298322696543,0.7072287892989475,capacity_ah_2v7 ≤-20.0σ; v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ,"fails data-quality rules: outlier | run at a different test condition from this cell's main one (24 °C, 4.0 A)"
+B0040,1,0.6627106535095459,0.7072287892989475,capacity_ah_2v7 ≤-20.0σ; v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ,"fails data-quality rules: outlier | run at a different test condition from this cell's main one (24 °C, 4.0 A)"
+B0040,42,1.651285275498852,0.7040966145469878,v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ; dis_t_max ≥+20.0σ,"run at a different test condition from this cell's main one (44 °C, 2.0 A)"
+B0040,46,0.4089440020453715,0.6975524372432377,capacity_ah_2v7 ≤-20.0σ; v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ,"fails data-quality rules: outlier | follows a 121 h rest (capacity regeneration is common) | run at a different test condition from this cell's main one (44 °C, 4.0 A)"
+B0040,44,1.6398450463799987,0.6908220899953578,v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ; dis_t_max ≥+20.0σ,"run at a different test condition from this cell's main one (44 °C, 2.0 A)"
+B0038,46,1.5136263680294437,0.6901900230224538,v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ; t_rise_300s ≥+20.0σ,"fails data-quality rules: outlier | follows a 121 h rest (capacity regeneration is common) | run at a different test condition from this cell's main one (44 °C, 4.0 A)"
+B0040,45,1.635453089733058,0.6865686128627659,v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ; dis_t_max ≥+20.0σ,"run at a different test condition from this cell's main one (44 °C, 2.0 A)"
+B0040,43,1.645094439045564,0.6852146314903985,v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ; dis_t_max ≥+20.0σ,"run at a different test condition from this cell's main one (44 °C, 2.0 A)"
+B0039,46,1.3053203805009295,0.682183498718684,v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ; t_rise_300s ≥+20.0σ,"fails data-quality rules: outlier | follows a 121 h rest (capacity regeneration is common) | run at a different test condition from this cell's main one (44 °C, 4.0 A)"
+B0039,42,1.6288817208119533,0.6819516680289062,cap_resid_prev5 ≤-20.0σ; v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ,"run at a different test condition from this cell's main one (44 °C, 2.0 A)"
+B0040,41,1.65851180647164,0.6737198055618795,v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ; dis_t_max ≥+20.0σ,"run at a different test condition from this cell's main one (44 °C, 2.0 A)"
+B0038,42,1.7290513131502143,0.6735401004936439,v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ; t_rise_300s ≥+20.0σ,"run at a different test condition from this cell's main one (44 °C, 2.0 A)"
+B0038,45,1.7186786768577142,0.6701747247248364,v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ; t_rise_300s ≥+20.0σ,"run at a different test condition from this cell's main one (44 °C, 2.0 A)"
+B0040,40,1.6615924909139208,0.6678080484308296,v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ; dis_t_max ≥+20.0σ,"run at a different test condition from this cell's main one (44 °C, 2.0 A)"
+B0039,45,1.6053991944697015,0.6675904301716832,v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ; i_set ≥+20.0σ,"run at a different test condition from this cell's main one (44 °C, 2.0 A)"
+B0038,44,1.7211071628245944,0.66648038137336,v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ; t_rise_300s ≥+20.0σ,"run at a different test condition from this cell's main one (44 °C, 2.0 A)"
+B0040,13,1.7049311379053869,0.6650178518224521,cap_resid_prev5 ≥+20.0σ; dis_t_start ≤-20.0σ; t_rise_300s ≥+20.0σ,follows a 99 h rest (capacity regeneration is common) | ambient temperature differs from the previous cycle
+B0038,43,1.7228706447700397,0.664984060795245,v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ; t_rise_300s ≥+20.0σ,"run at a different test condition from this cell's main one (44 °C, 2.0 A)"
+B0039,41,1.6389069663142886,0.6624808228450418,v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ; i_set ≥+20.0σ,"run at a different test condition from this cell's main one (44 °C, 2.0 A)"
+B0038,13,1.7390060153095401,0.6619181914533496,cap_resid_prev5 ≥+20.0σ; dis_t_start ≤-20.0σ; t_rise_300s ≥+20.0σ,follows a 99 h rest (capacity regeneration is common) | ambient temperature differs from the previous cycle
+B0039,44,1.6130160840156198,0.6615161206267203,v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ; i_set ≥+20.0σ,"run at a different test condition from this cell's main one (44 °C, 2.0 A)"
+B0039,40,1.650882838575521,0.6606657804822599,v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ; i_set ≥+20.0σ,"run at a different test condition from this cell's main one (44 °C, 2.0 A)"
+B0039,43,1.6204583038862215,0.6599498339538891,v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ; i_set ≥+20.0σ,"run at a different test condition from this cell's main one (44 °C, 2.0 A)"
+B0041,56,0.9102878143329303,0.6522376124903245,capacity_ah_2v7 ≥+20.0σ; v_at_300s ≤-20.0σ; chg_cv_duration_s ≥+20.0σ,"run at a different test condition from this cell's main one (4 °C, 1.0 A)"
+B0038,40,1.72874535082557,0.6519632065359251,v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ; t_rise_300s ≥+20.0σ,"run at a different test condition from this cell's main one (44 °C, 2.0 A)"
+B0039,13,1.7430776702110538,0.6517099230009009,cap_resid_prev5 ≥+20.0σ; dis_t_start ≤-20.0σ; t_rise_300s ≥+20.0σ,follows a 99 h rest (capacity regeneration is common) | ambient temperature differs from the previous cycle
+B0041,63,0.8661542705348285,0.6510655481046701,capacity_ah_2v7 ≥+20.0σ; v_at_300s ≤-20.0σ; chg_cv_duration_s ≥+20.0σ,"run at a different test condition from this cell's main one (4 °C, 1.0 A)"
+B0038,41,1.7312035215500423,0.650733116623996,v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ; t_rise_300s ≥+20.0σ,"run at a different test condition from this cell's main one (44 °C, 2.0 A)"
+B0041,58,0.8936057136147105,0.6502058966184537,capacity_ah_2v7 ≥+20.0σ; v_at_300s ≤-20.0σ; chg_cv_duration_s ≥+20.0σ,"run at a different test condition from this cell's main one (4 °C, 1.0 A)"
+B0041,65,0.8617161853270346,0.649755483476364,capacity_ah_2v7 ≥+20.0σ; v_at_300s ≤-20.0σ; chg_cv_duration_s ≥+20.0σ,"run at a different test condition from this cell's main one (4 °C, 1.0 A)"
+B0041,61,0.8782423763279695,0.6490131097939532,capacity_ah_2v7 ≥+20.0σ; v_at_300s ≤-20.0σ; chg_cv_duration_s ≥+20.0σ,"run at a different test condition from this cell's main one (4 °C, 1.0 A)"
+B0041,57,0.9068269558926716,0.6488383205604672,capacity_ah_2v7 ≥+20.0σ; v_at_300s ≤-20.0σ; chg_cv_duration_s ≥+20.0σ,"run at a different test condition from this cell's main one (4 °C, 1.0 A)"
+B0041,60,0.8901256596746532,0.6484665959501292,capacity_ah_2v7 ≥+20.0σ; v_at_300s ≤-20.0σ; chg_cv_duration_s ≥+20.0σ,"run at a different test condition from this cell's main one (4 °C, 1.0 A)"
+B0041,64,0.8417423815559876,0.6481700315117023,capacity_ah_2v7 ≥+20.0σ; v_at_300s ≤-20.0σ; chg_cv_duration_s ≥+20.0σ,"run at a different test condition from this cell's main one (4 °C, 1.0 A)"
+B0041,66,0.845466711400785,0.6479467767454306,capacity_ah_2v7 ≥+20.0σ; v_at_300s ≤-20.0σ; chg_cv_duration_s ≥+20.0σ,"run at a different test condition from this cell's main one (4 °C, 1.0 A)"
+B0036,1,0.9983451829623793,0.6468186013615905,v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ; t_rise_300s ≤-20.0σ,fails data-quality rules: outlier
+B0041,59,0.8840769949704731,0.6467395145192488,capacity_ah_2v7 ≥+20.0σ; v_at_300s ≤-20.0σ; chg_cv_duration_s ≥+20.0σ,"run at a different test condition from this cell's main one (4 °C, 1.0 A)"
+B0041,67,0.8328136915190308,0.6447707934514975,capacity_ah_2v7 ≥+20.0σ; v_at_300s ≤-20.0σ; chg_cv_duration_s ≥+20.0σ,"run at a different test condition from this cell's main one (4 °C, 1.0 A)"
+B0041,62,0.8764881511203472,0.6446696093596249,capacity_ah_2v7 ≥+20.0σ; v_at_300s ≤-20.0σ; chg_cv_duration_s ≥+20.0σ,"run at a different test condition from this cell's main one (4 °C, 1.0 A)"
+B0041,44,1.144904564917787,0.6037326005628783,capacity_ah_2v7 ≥+20.0σ; v_at_300s ≤-20.0σ; i_set ≤-20.0σ,"run at a different test condition from this cell's main one (4 °C, 1.0 A)"
+B0041,49,0.9970770850229835,0.6011104491327189,capacity_ah_2v7 ≥+20.0σ; v_at_300s ≤-20.0σ; i_set ≤-20.0σ,"run at a different test condition from this cell's main one (4 °C, 1.0 A)"
+B0041,47,1.0567121756471758,0.6006784495807549,capacity_ah_2v7 ≥+20.0σ; v_at_300s ≤-20.0σ; i_set ≤-20.0σ,"run at a different test condition from this cell's main one (4 °C, 1.0 A)"
+B0041,45,1.1148223032191553,0.5981522239955019,capacity_ah_2v7 ≥+20.0σ; v_at_300s ≤-20.0σ; i_set ≤-20.0σ,"run at a different test condition from this cell's main one (4 °C, 1.0 A)"
+B0041,46,1.0795137652668938,0.5955052476711484,capacity_ah_2v7 ≥+20.0σ; v_at_300s ≤-20.0σ; i_set ≤-20.0σ,"run at a different test condition from this cell's main one (4 °C, 1.0 A)"
+B0041,51,0.9627636681381998,0.5945621433438303,capacity_ah_2v7 ≥+20.0σ; v_at_300s ≤-20.0σ; i_set ≤-20.0σ,"run at a different test condition from this cell's main one (4 °C, 1.0 A)"
+B0041,54,0.9051354659860366,0.5943373302232406,capacity_ah_2v7 ≥+20.0σ; v_at_300s ≤-20.0σ; i_set ≤-20.0σ,"run at a different test condition from this cell's main one (4 °C, 1.0 A)"
+B0041,48,1.0150114160088837,0.5920470116662384,capacity_ah_2v7 ≥+20.0σ; v_at_300s ≤-20.0σ; i_set ≤-20.0σ,"run at a different test condition from this cell's main one (4 °C, 1.0 A)"
+B0041,50,0.9887446637563642,0.591846723471179,capacity_ah_2v7 ≥+20.0σ; v_at_300s ≤-20.0σ; i_set ≤-20.0σ,"run at a different test condition from this cell's main one (4 °C, 1.0 A)"
+B0041,52,0.9338754596465012,0.5868017127379749,capacity_ah_2v7 ≥+20.0σ; v_at_300s ≤-20.0σ; i_set ≤-20.0σ,"run at a different test condition from this cell's main one (4 °C, 1.0 A)"
+B0031,1,1.6512182687538146,0.5863672249003313,v_at_60s ≤-20.0σ; dis_t_start ≤-20.0σ; v_at_300s -15.6σ,fails data-quality rules: outlier
+B0041,53,0.9272095718471757,0.586258711195197,capacity_ah_2v7 ≥+20.0σ; v_at_300s ≤-20.0σ; i_set ≤-20.0σ,"run at a different test condition from this cell's main one (4 °C, 1.0 A)"
+B0041,43,1.2123218269086427,0.583897239505085,capacity_ah_2v7 ≥+20.0σ; v_at_300s ≤-20.0σ; i_set ≤-20.0σ,"follows a 38 h rest (capacity regeneration is common) | run at a different test condition from this cell's main one (4 °C, 1.0 A)"
+B0041,55,0.9124761397809051,0.580088099425824,capacity_ah_2v7 ≥+20.0σ; v_at_300s ≤-20.0σ; i_set ≤-20.0σ,"run at a different test condition from this cell's main one (4 °C, 1.0 A)"
+B0034,1,0.7368959020979136,0.5767007601170154,dis_v_std ≤-20.0σ; v_at_60s -13.3σ; i_set -9.1σ,fails data-quality rules: outlier
+B0054,1,0.735546875795029,0.5745516198046392,v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ; dis_v_std -7.6σ,fails data-quality rules: outlier
+B0033,1,0.053690205613699284,0.5644355331602249,dis_t_max ≤-20.0σ; v_at_60s -10.6σ; capacity_ah_2v7 -9.6σ,fails data-quality rules: low_capacity
+B0056,1,0.7775151269696176,0.5631518047777736,v_at_60s ≤-20.0σ; v_at_300s -19.1σ; dis_v_std -7.3σ,fails data-quality rules: outlier
+B0033,143,0.21252950357151948,0.5596785166281519,v_at_300s +13.7σ; capacity_ah_2v7 -8.5σ; dis_t_max -8.1σ,fails data-quality rules: low_capacity
+B0033,142,0.1794211590109464,0.5585853200153933,v_at_300s +14.4σ; capacity_ah_2v7 -8.7σ; dis_t_max -8.3σ,fails data-quality rules: low_capacity
+B0055,1,0.7931102065394463,0.5553703354242722,v_at_60s ≤-20.0σ; v_at_300s ≤-20.0σ; dis_v_std -6.6σ,fails data-quality rules: outlier
+B0033,148,1.4444631324764812,0.5548774340283904,dis_t_max +7.0σ; t_rise_300s +6.8σ; dis_v_std -6.3σ,no benign explanation found in the recorded context - worth inspecting
+B0033,141,0.2215475043185344,0.552978767035341,v_at_300s +13.4σ; dis_t_max -8.5σ; capacity_ah_2v7 -8.4σ,fails data-quality rules: low_capacity
+B0051,1,0.636978857632914,0.5502238117541641,v_at_60s -19.8σ; v_at_300s -14.8σ; dis_v_std -6.0σ,fails data-quality rules: outlier
+B0033,144,0.21255456162249942,0.5491791554567432,v_at_300s +13.4σ; dis_t_max -8.9σ; capacity_ah_2v7 -8.5σ,fails data-quality rules: low_capacity
+B0030,1,1.6489117652255039,0.5479691396845648,dis_t_start ≤-20.0σ; v_at_60s -10.2σ; dis_t_max -7.4σ,fails data-quality rules: outlier
+B0029,1,1.6888263398869041,0.5442053192973749,dis_t_start ≤-20.0σ; dis_t_max -9.9σ; v_at_60s -9.3σ,fails data-quality rules: outlier
+B0036,114,2.4391105855616115,0.5428640795076046,v_at_60s ≥+20.0σ; v_at_300s ≥+20.0σ; dis_v_std ≥+20.0σ,fails data-quality rules: outlier
+B0032,1,1.6885908879643372,0.5423738040447741,dis_t_start ≤-20.0σ; v_at_60s -9.1σ; dis_v_std -7.6σ,fails data-quality rules: outlier
+B0052,1,0.8549688292879086,0.5402633289823894,capacity_ah_2v7 -10.4σ; dis_v_std -8.8σ; v_at_60s -8.2σ,"fails data-quality rules: outlier | run at a different test condition from this cell's main one (4 °C, 2.0 A)"
+B0050,5,0.028260249260745864,0.534792473543388,v_at_60s ≤-20.0σ; dis_v_std ≥+20.0σ; v_at_300s +11.2σ,fails data-quality rules: low_capacity | follows a 51 h rest (capacity regeneration is common)
+B0018,46,1.72103039361114,0.5300476751258235,chg_t_max -18.8σ; cap_resid_prev5 +11.1σ; chg_cv_duration_s -5.6σ,no benign explanation found in the recorded context - worth inspecting
+B0033,145,0.42049093835476736,0.5266373187173751,capacity_ah_2v7 -7.0σ; t_rise_300s +6.2σ; v_at_300s -5.7σ,fails data-quality rules: outlier
+B0054,2,1.163638153304741,0.5246955407690842,v_at_300s -12.6σ; v_at_60s -9.2σ; chg_cv_duration_s -5.4σ,no benign explanation found in the recorded context - worth inspecting
+B0042,76,0.06245541062366307,0.523615975994558,v_at_60s -17.1σ; v_at_300s -11.6σ; t_rise_300s +6.8σ,fails data-quality rules: low_capacity
+B0042,73,0.06915818035687402,0.5206233539177546,v_at_60s -15.7σ; v_at_300s -11.7σ; chg_cv_duration_s +6.3σ,fails data-quality rules: low_capacity
+B0036,4,1.7976132505918871,0.5195091515858505,t_rise_300s ≤-20.0σ; dis_t_max -10.8σ; chg_t_max -6.9σ,no benign explanation found in the recorded context - worth inspecting
+B0036,2,1.7968048255987712,0.5154548041364921,t_rise_300s ≤-20.0σ; dis_t_max -10.6σ; chg_t_max -6.0σ,no benign explanation found in the recorded context - worth inspecting
+B0036,3,1.798037874280182,0.5152918622529333,t_rise_300s -19.1σ; dis_t_max -10.7σ; chg_t_max -6.7σ,no benign explanation found in the recorded context - worth inspecting
+B0055,2,1.314905629234268,0.5122949172663268,v_at_60s -12.5σ; v_at_300s -11.3σ; chg_cc_duration_s +9.1σ,no benign explanation found in the recorded context - worth inspecting
+B0036,18,1.7827210930561836,0.5121764764693637,t_rise_300s ≤-20.0σ; dis_t_max -9.2σ; chg_t_max -6.1σ,no benign explanation found in the recorded context - worth inspecting
+B0042,81,0.060986167650000936,0.511172427947378,v_at_60s -17.4σ; v_at_300s -11.7σ; t_rise_300s +6.4σ,fails data-quality rules: low_capacity
+B0042,57,0.07472683836239419,0.5110234040995013,v_at_60s -15.0σ; v_at_300s -10.9σ; t_rise_300s +5.6σ,fails data-quality rules: low_capacity
+B0036,7,1.7815160803745478,0.5101761331193385,t_rise_300s ≤-20.0σ; dis_t_max -11.8σ; chg_t_max -7.4σ,no benign explanation found in the recorded context - worth inspecting
+B0042,77,0.06748962500659207,0.5097376322897059,v_at_60s -16.0σ; v_at_300s -12.2σ; t_rise_300s +5.5σ,fails data-quality rules: low_capacity
+B0036,6,1.7869532118585887,0.5074397283575021,t_rise_300s ≤-20.0σ; dis_t_max -11.7σ; chg_t_max -7.2σ,no benign explanation found in the recorded context - worth inspecting
+B0042,63,0.06611917571164522,0.5069414234781806,v_at_60s -16.2σ; v_at_300s -11.3σ; t_rise_300s +6.0σ,fails data-quality rules: low_capacity
+B0042,62,0.07590941031020623,0.5064128866949329,v_at_60s -14.8σ; v_at_300s -11.8σ; chg_cv_duration_s +5.1σ,fails data-quality rules: low_capacity
+B0042,67,0.07223925245162115,0.506397467677324,v_at_60s -15.2σ; v_at_300s -11.2σ; t_rise_300s +6.0σ,fails data-quality rules: low_capacity | follows a 51 h rest (capacity regeneration is common)
+B0042,75,0.07023264063996675,0.5058044810745169,v_at_60s -15.5σ; v_at_300s -12.0σ; t_rise_300s +5.4σ,fails data-quality rules: low_capacity
+B0042,70,0.07415736764038468,0.5052440517898774,v_at_60s -14.9σ; v_at_300s -11.2σ; t_rise_300s +5.8σ,fails data-quality rules: low_capacity
+B0042,72,0.07358592792633166,0.5034646954216863,v_at_60s -15.0σ; v_at_300s -12.0σ; chg_cv_duration_s +5.2σ,fails data-quality rules: low_capacity
+B0036,5,1.792592398975083,0.503365331228767,t_rise_300s ≤-20.0σ; dis_t_max -11.2σ; chg_t_max -7.1σ,no benign explanation found in the recorded context - worth inspecting
+B0042,64,0.07226612693617346,0.5027549304764011,v_at_60s -15.3σ; v_at_300s -11.3σ; t_rise_300s +5.7σ,fails data-quality rules: low_capacity
+B0018,56,1.666241451594156,0.502396168324617,chg_t_max -19.0σ; chg_cv_duration_s -9.7σ; cap_resid_prev5 +5.6σ,no benign explanation found in the recorded context - worth inspecting
+B0033,147,0.3883703313869592,0.5020596133913496,capacity_ah_2v7 -7.3σ; t_rise_300s +6.0σ; v_at_300s -5.8σ,fails data-quality rules: outlier
+B0042,61,0.07162744118363525,0.501639573980261,v_at_60s -15.4σ; v_at_300s -11.1σ; t_rise_300s +5.8σ,fails data-quality rules: low_capacity
+B0042,55,0.07299944982695725,0.5015470066466905,v_at_60s -15.1σ; v_at_300s -10.9σ; t_rise_300s +6.1σ,fails data-quality rules: low_capacity
+B0042,74,0.07193951360164919,0.5012044150205711,v_at_60s -15.3σ; v_at_300s -12.0σ; t_rise_300s +5.0σ,fails data-quality rules: low_capacity
+B0042,43,0.06653668183083208,0.500913661186286,v_at_60s -16.1σ; v_at_300s -10.1σ; t_rise_300s +4.5σ,fails data-quality rules: low_capacity

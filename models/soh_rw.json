@@ -1,0 +1,93 @@
+{
+  "dataset": "Randomized Usage",
+  "model": "Gradient Boosting",
+  "feature_set": "C: +pulse resistance",
+  "loco_MAE": 0.023751341328571655,
+  "loco_RMSE": 0.039340915204221893,
+  "loco_R2": 0.9384177764670436,
+  "target": "soh",
+  "features": [
+    "ambient_40c",
+    "dist_skewed_high",
+    "dist_skewed_low",
+    "dist_uniform",
+    "efc",
+    "elapsed_days",
+    "interval_discharge_ah",
+    "interval_rw_i_mean",
+    "interval_rw_t_mean",
+    "interval_rw_t_max",
+    "interval_frac_hit_vmin",
+    "r_operational_ohm",
+    "ref_chg_cc_duration_s",
+    "ref_chg_cv_duration_s",
+    "ref_chg_t_max",
+    "r_pulse_ohm"
+  ],
+  "feature_ranges": {
+    "ambient_40c": [
+      0.0,
+      1.0
+    ],
+    "dist_skewed_high": [
+      0.0,
+      1.0
+    ],
+    "dist_skewed_low": [
+      0.0,
+      1.0
+    ],
+    "dist_uniform": [
+      0.0,
+      1.0
+    ],
+    "efc": [
+      0.0,
+      898.578337615699
+    ],
+    "elapsed_days": [
+      0.11356747685185185,
+      197.20043946759253
+    ],
+    "interval_discharge_ah": [
+      0.0,
+      104.17348744894434
+    ],
+    "interval_rw_i_mean": [
+      1.2332837369506804,
+      3.462283379657389
+    ],
+    "interval_rw_t_mean": [
+      20.060873626551242,
+      47.883805210761125
+    ],
+    "interval_rw_t_max": [
+      25.130181,
+      56.555793400000006
+    ],
+    "interval_frac_hit_vmin": [
+      0.019061151026101387,
+      0.8116000837787876
+    ],
+    "r_operational_ohm": [
+      0.07369598613063953,
+      0.14548860276938053
+    ],
+    "ref_chg_cc_duration_s": [
+      40.0,
+      2580.0
+    ],
+    "ref_chg_cv_duration_s": [
+      6983.838,
+      20992.682999999997
+    ],
+    "ref_chg_t_max": [
+      21.0832508,
+      44.17516080000001
+    ],
+    "r_pulse_ohm": [
+      0.07900746167029651,
+      0.14501520126069745
+    ]
+  }
+}

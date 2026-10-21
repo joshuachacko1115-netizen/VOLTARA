@@ -1,0 +1,83 @@
+{
+  "dataset": "Battery Aging",
+  "model": "Random Forest",
+  "feature_set": "A: charge+impedance",
+  "loco_MAE": 0.020599837861467886,
+  "loco_RMSE": 0.02798782324589464,
+  "loco_R2": 0.9074135598074673,
+  "target": "soh",
+  "features": [
+    "ambient_temperature",
+    "i_set",
+    "cycle_number",
+    "elapsed_days",
+    "rest_before_h",
+    "chg_cc_duration_s",
+    "chg_cv_duration_s",
+    "chg_ah",
+    "chg_v_start",
+    "chg_t_mean",
+    "chg_t_max",
+    "re_ohm",
+    "rct_ohm",
+    "impedance_age_cycles"
+  ],
+  "feature_ranges": {
+    "ambient_temperature": [
+      24.0,
+      43.0
+    ],
+    "i_set": [
+      1.9891677101896286,
+      4.029053773602089
+    ],
+    "cycle_number": [
+      2.5600000000000005,
+      193.0
+    ],
+    "elapsed_days": [
+      0.29096391203703703,
+      65.80572193287037
+    ],
+    "rest_before_h": [
+      0.01783508888888889,
+      28.070265
+    ],
+    "chg_cc_duration_s": [
+      992.58636,
+      3469.16464
+    ],
+    "chg_cv_duration_s": [
+      3083.156849999997,
+      7341.739250000001
+    ],
+    "chg_ah": [
+      1.1985407516824333,
+      1.9633671636134928
+    ],
+    "chg_v_start": [
+      3.305287908688611,
+      3.9174494969693034
+    ],
+    "chg_t_mean": [
+      24.07848822851704,
+      45.68197896386438
+    ],
+    "chg_t_max": [
+      24.834290451799472,
+      60.64865959335979
+    ],
+    "re_ohm": [
+      0.02814132119972847,
+      0.12901192908486622
+    ],
+    "rct_ohm": [
+      0.03991689466131403,
+      0.15180718662174686
+    ],
+    "impedance_age_cycles": [
+      1.0,
+      5.0
+    ]
+  }
+}
