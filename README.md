@@ -21,9 +21,27 @@ permits the Pages origin, with additional exact origins configurable through
 
 The backend requires EV model files, their JSON metadata, the EV split-unit
 report and both synthetic EV CSV datasets. They are not all stored in Git.
-The existing core XGBoost files fail to load with `input stream corrupted`.
-Repair or retrain those artifacts without overwriting the originals before
-attempting deployment. No existing predictor has been replaced with dummy results.
+The original core XGBoost training-state snapshots fail to load on Windows with
+`input stream corrupted`. Inference-only copies have now been recovered through
+XGBoost's portable learned-model format, without retraining or changing originals.
+All 11 converted models reproduce their recorded held-out MAE or classification
+accuracy; 35 EV pipeline, assessment, dashboard, API and deployment tests pass
+against the copies. This validates these EV backend paths, not the separate NASA
+dashboard. No predictor has been replaced with dummy results.
+
+To reproduce the conversion on trusted local files:
+
+```powershell
+.\.venv-ci\Scripts\python.exe -m pip install py-ubjson==0.16.1
+.\.venv-ci\Scripts\python.exe -m scripts.convert_runtime_models
+.\.venv-ci\Scripts\python.exe -m scripts.package_runtime --models-dir dist/render-runtime/models
+```
+
+Conversion requires the original processed EV feature tables for score checks.
+Outputs are under ignored `dist/`; they are for inference and do not preserve
+platform-specific RNG state for continued training. The validated deployment ZIP
+is approximately 131 MB. Publishing this bundle to a download host, choosing the
+Render workspace and approving any paid compute are still pending.
 
 Once real inference works locally, create the runtime bundle:
 

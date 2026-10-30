@@ -60,10 +60,13 @@ def main():
     validate_runtime()
 
 
-def validate_runtime():
+def validate_runtime(models_dir=None):
     # Validate the real API paths; fail the build rather than deploy broken inference.
     import sys
     sys.path.insert(0, str(ROOT))
+    if models_dir is not None:
+        import src.config as config
+        config.MODELS_DIR = Path(models_dir).resolve()
     from webapp.server import meta, run_assessment, samples
     meta(None)
     run_assessment({'source': 'manual', 'capacity_kwh': 60, 'soc_pct': 80,
