@@ -1,5 +1,13 @@
 # VOLTARA — Battery health, degradation and RUL from NASA data
 
+[![VOLTARA CI](https://github.com/joshuachacko1115-netizen/VOLTARA/actions/workflows/ci.yml/badge.svg)](https://github.com/joshuachacko1115-netizen/VOLTARA/actions/workflows/ci.yml)
+
+Repository: [joshuachacko1115-netizen/VOLTARA](https://github.com/joshuachacko1115-netizen/VOLTARA).
+The first hosted CI run [passed on 2026-10-30](https://github.com/joshuachacko1115-netizen/VOLTARA/actions/runs/41034676855),
+including dependency checks, compilation, tests, source packaging and artifact upload.
+Dataset/model-dependent tests may skip in CI; the local pretrained-model failures
+documented below remain separate from this successful source validation.
+
 ## GitHub Actions and Windows setup
 
 This is a Python battery-health application, with a Streamlit dashboard and a
@@ -74,14 +82,14 @@ dashboard/API failures. Matching scikit-learn to the original 1.9.1 environment
 did not resolve those errors. No model files or application behavior were changed
 to hide these failures. The full pretrained application is therefore not validated.
 The isolated incorrect-assertion demonstration correctly exited with status 1,
-and the copied test was restored. GitHub-hosted execution is still pending the
-repository connection and an approved push. Reports from local validation are
+and the copied test was restored. GitHub-hosted execution succeeded after the
+approved push to `main` (see the verified run above). Reports from local validation are
 under ignored `dist/` and are not the historical `reports/test_results.txt`.
 
 Create a repository named **VOLTARA** at <https://github.com/new>. Choose your
 visibility and leave README, `.gitignore`, and license initialization unchecked.
-Send the resulting repository URL to the assistant for remote inspection and
-configuration. No remote has been invented or overwritten.
+This project is now connected to the repository linked above as `origin`;
+the instructions here describe its initial setup. No existing remote was overwritten.
 
 Before committing, review existing local changes as well as the new CI files:
 
@@ -93,8 +101,8 @@ git diff -- .gitignore README.md
 git remote -v
 ```
 
-The original branch is `dashboard`. The following commands retain it and create
-`main` for the first publication, assuming no `main` branch already exists.
+The original branch `dashboard` is retained. `main` now tracks `origin/main`.
+For future updates, review changes and commit on `main`.
 Stage application sources explicitly so new generated binaries are not added:
 
 ```powershell
