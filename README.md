@@ -10,6 +10,29 @@ documented below remain separate from this successful source validation.
 
 ## GitHub Actions and Windows setup
 
+### GitHub Pages deployment
+
+Public frontend: [VOLTARA on GitHub Pages](https://joshuachacko1115-netizen.github.io/VOLTARA/).
+CI builds `dist/pages` with `python scripts/build_pages.py`. After tests and
+packaging succeed, pushes to `main` and manual runs on `main` upload the Pages
+artifact and run the dependent `deploy-pages` job. Pull requests validate the
+site build without deploying. Only the deployment job receives `pages: write`
+and `id-token: write`; its environment is `github-pages`. The repository's Pages
+publishing source is GitHub Actions.
+
+GitHub Pages serves static assets only. The deployed site is explicitly a
+frontend preview: it does not run Starlette, Streamlit, model inference or CSV
+assessment. These controls are disabled, example-output numbers are hidden,
+and the page links to instructions for running the full application locally.
+No models, raw data, credentials, reports or Python server files are deployed.
+The Python app's existing API behavior is preserved when run locally. Hosting
+live inference requires a separate Python-capable service; no such service is
+created or configured by this Pages deployment.
+
+To check deployment, open **Actions > VOLTARA CI**, confirm both jobs succeed,
+then follow the `github-pages` environment URL. Pages deployment status is
+separate from the previously documented model-loading failures.
+
 This is a Python battery-health application, with a Streamlit dashboard and a
 Starlette web app. Run commands from the directory containing this README.
 The macOS `.venv` supplied with the project is not usable on Windows.
@@ -63,7 +86,7 @@ pretrained demo: extract it, install dependencies, and supply datasets/train
 models before inference. Packaging includes source, frontend assets, tests,
 workflow and requirements using an explicit file allowlist. It excludes data,
 models, reports, virtual environments, Git metadata and secrets. No cloud
-deployment, GitHub Release or package-registry publication is configured.
+Python backend deployment, GitHub Release or package-registry publication is configured.
 
 The corrected `/data/` ignore pattern ignores only root datasets and permits
 `src/data` source modules to be committed. Generated models/reports are ignored

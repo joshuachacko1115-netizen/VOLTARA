@@ -629,3 +629,8 @@ input[type="range"]:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 0 6px 
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
   .reveal { opacity: 1; transform: none; }
 }
+/* Static hosting notice; the Python application does not render this element. */
+.pages-note { margin: 24px 0; padding: 24px; border: 1px solid currentColor; border-radius: 12px; }
+.pages-note h2 { margin: 0 0 12px; font-size: 1.3rem; }
+.pages-note p { max-width: 72ch; margin-bottom: 12px; line-height: 1.6; }
+.pages-note a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }

@@ -629,6 +629,20 @@ async function init() {
   $$(".tile").forEach((t) => t.classList.add("placeholder-state"));
 
   const status = $("#status");
+  if (window.VOLTARA_PAGES_PREVIEW) {
+    status.className = "status";
+    $("span", status).textContent = "Frontend preview";
+    $$("input, select, button", $("#form")).forEach((el) => { el.disabled = true; });
+    $("#form").addEventListener("submit", (event) => event.preventDefault());
+    $("#go").textContent = "Requires the Python application";
+    $("#out-sub").textContent = "No assessment has been run. Live predictions require the Python server.";
+    $("#tiles").hidden = true;
+    $("#tiles").style.display = "none";
+    $("#insights").hidden = true;
+    $("#hero-stats").hidden = true;
+    $("#hero-stats").style.display = "none";
+    return;
+  }
   try {
     S.meta = await api("/api/meta");
     status.className = "status ok";
