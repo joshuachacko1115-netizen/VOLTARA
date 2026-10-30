@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: voltara-api
+    runtime: python
+    repo: https://github.com/joshuachacko1115-netizen/VOLTARA
+    branch: main
+    plan: free
+    autoDeployTrigger: checksPass
+    buildCommand: pip install -r requirements-render.txt && python scripts/prepare_render.py
+    startCommand: python -m uvicorn webapp.server:app --host 0.0.0.0 --port $PORT --workers 1
+    healthCheckPath: /readyz
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.13.6
+      - key: OMP_NUM_THREADS
+        value: '1'
+      - key: OPENBLAS_NUM_THREADS
+        value: '1'
+      - key: ALLOWED_ORIGINS
+        value: https://joshuachacko1115-netizen.github.io
+      - key: VOLTARA_ASSET_BUNDLE_URL
+        sync: false
+      - key: VOLTARA_ASSET_BUNDLE_SHA256
+        sync: false

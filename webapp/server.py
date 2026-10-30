@@ -16,12 +16,15 @@ serves webapp/static/.
 from __future__ import annotations
 
 import math
+import os
 from functools import lru_cache
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 from starlette.applications import Starlette
+from starlette.middleware import Middleware
+from starlette.middleware.cors import CORSMiddleware
 from starlette.concurrency import run_in_threadpool
 from starlette.requests import Request
 from starlette.responses import FileResponse, JSONResponse, Response
@@ -252,7 +255,30 @@ def example_csv(request: Request) -> Response:
                     headers={"Content-Disposition": f'attachment; filename="voltara_{dataset}_example.csv"'})
 
 
-app = Starlette(routes=[
+def health(request: Request) -> Response:
+    return JSONResponse({"status": "ok"})
+
+
+def ready(request: Request) -> Response:
+    try:
+        quick_models()
+        for dataset in DATASETS:
+            if not samples(dataset):
+                raise RuntimeError("Sample data unavailable")
+    except Exception:
+        return JSONResponse({"status": "unavailable", "detail": "Inference assets are not ready."}, status_code=503)
+    return JSONResponse({"status": "ready"})
+
+
+ALLOWED_ORIGINS = [origin.strip() for origin in os.environ.get(
+    "ALLOWED_ORIGINS", "https://joshuachacko1115-netizen.github.io").split(",") if origin.strip()]
+
+app = Starlette(middleware=[Middleware(
+    CORSMiddleware, allow_origins=ALLOWED_ORIGINS,
+    allow_methods=["GET", "POST"], allow_headers=["Content-Type"],
+)], routes=[
+    Route("/healthz", health),
+    Route("/readyz", ready),
     Route("/", index),
     Route("/api/meta", meta),
     Route("/api/sample", sample_profile),

@@ -37,7 +37,7 @@ const icon = (id) => `<svg><use href="#i-${id}"/></svg>`;
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 async function api(path, opts = {}) {
-  const res = await fetch(path, opts);
+  const res = await fetch((window.VOLTARA_API_BASE_URL || "") + path, opts);
   let data = null;
   try { data = await res.json(); } catch { /* not JSON */ }
   if (!res.ok) throw new Error((data && data.error) || `The server answered ${res.status}.`);

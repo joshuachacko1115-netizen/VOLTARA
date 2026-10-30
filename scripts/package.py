@@ -6,7 +6,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def main():
-    paths = [ROOT / name for name in ("README.md", "requirements.txt", "requirements-ci.txt")]
+    paths = [ROOT / name for name in ("README.md", "requirements.txt", "requirements-ci.txt", "requirements-render.txt", "render.yaml")]
     for directory, suffixes in {
         "src": {".py"}, "dashboard": {".py"},
         "webapp": {".py", ".html", ".css", ".js"},

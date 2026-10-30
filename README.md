@@ -10,7 +10,57 @@ documented below remain separate from this successful source validation.
 
 ## GitHub Actions and Windows setup
 
-### GitHub Pages deployment
+### Render backend deployment (prepared; not yet live)
+
+`render.yaml` describes the Starlette API using Python 3.13.6, one Uvicorn worker,
+Render's `$PORT`, and `/readyz` as its health check. `/healthz` reports process
+liveness; `/readyz` returns 503 when required inference assets are unavailable.
+`requirements-render.txt` omits training/notebook/test-only dependencies. CORS
+permits the Pages origin, with additional exact origins configurable through
+`ALLOWED_ORIGINS` (comma-separated).
+
+The backend requires EV model files, their JSON metadata, the EV split-unit
+report and both synthetic EV CSV datasets. They are not all stored in Git.
+The existing core XGBoost files fail to load with `input stream corrupted`.
+Repair or retrain those artifacts without overwriting the originals before
+attempting deployment. No existing predictor has been replaced with dummy results.
+
+Once real inference works locally, create the runtime bundle:
+
+```powershell
+.\.venv-ci\Scripts\python.exe -m scripts.package_runtime
+```
+
+This first checks manual assessment and a held-out sample from each dataset;
+only then does it produce ignored `dist/voltara-runtime.zip` and print SHA256.
+Store that archive at a trusted HTTPS download location accessible during Render
+builds, respecting dataset redistribution permissions. Set the following Render
+environment variables (the blueprint prompts for them):
+
+- `VOLTARA_ASSET_BUNDLE_URL`: the HTTPS archive download URL.
+- `VOLTARA_ASSET_BUNDLE_SHA256`: the printed digest.
+
+The build verifies the hash, restricts archive paths and size, extracts the assets,
+and runs real inference smoke checks. Missing assets or broken predictions fail
+the build. Joblib files execute Python when loaded, so only use bundles you trust.
+Do not commit archives, signed URLs, tokens or deployment secrets to the repository.
+
+Connect Render to Codex and the GitHub repository, then create the service from
+the blueprint. Auto-deployment is configured to wait until GitHub checks pass.
+The blueprint selects the free plan to avoid allocating paid resources implicitly;
+this is not a claim that the full model set fits it. The existing RUL model alone
+is about 379 MB, and the full runtime needs more memory after loading data and
+other models. A larger compute plan may be required and requires your approval.
+No Render service has been created or verified yet.
+
+After `/readyz`, `/api/meta`, manual assessment and both sample routes pass on the
+live Render URL, set GitHub's **repository Actions variable**
+`VOLTARA_API_BASE_URL` to that HTTPS origin (no trailing path) and manually run
+the workflow on `main`. The Pages builder then enables the live form and points
+API calls/example downloads to Render. Until the URL is set, Pages stays in
+preview mode. This avoids publishing a frontend that points to an unready server.
+
+### Current Pages behavior
 
 Public frontend: [VOLTARA on GitHub Pages](https://joshuachacko1115-netizen.github.io/VOLTARA/).
 CI builds `dist/pages` with `python scripts/build_pages.py`. After tests and

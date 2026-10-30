@@ -40,6 +40,8 @@ jobs:
         run: python -m pytest -q -ra --junitxml=dist/test-results.xml
       - name: Build GitHub Pages frontend
         run: python scripts/build_pages.py
+        env:
+          VOLTARA_API_BASE_URL: ${{ vars.VOLTARA_API_BASE_URL }}
       - name: Package source distribution
         run: python scripts/package.py
       - name: Upload validated distribution and test report
