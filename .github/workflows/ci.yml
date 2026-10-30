@@ -1,4 +1,4 @@
-name: VOLTARA CI
+name: VOLTARA CI/CD
 
 on:
   push:

@@ -1,6 +1,6 @@
 # VOLTARA — Battery health, degradation and RUL from NASA data
 
-[![VOLTARA CI](https://github.com/joshuachacko1115-netizen/VOLTARA/actions/workflows/ci.yml/badge.svg)](https://github.com/joshuachacko1115-netizen/VOLTARA/actions/workflows/ci.yml)
+[![VOLTARA CI/CD](https://github.com/joshuachacko1115-netizen/VOLTARA/actions/workflows/ci.yml/badge.svg)](https://github.com/joshuachacko1115-netizen/VOLTARA/actions/workflows/ci.yml)
 
 Repository: [joshuachacko1115-netizen/VOLTARA](https://github.com/joshuachacko1115-netizen/VOLTARA).
 The first hosted CI run [passed on 2026-10-30](https://github.com/joshuachacko1115-netizen/VOLTARA/actions/runs/41034676855),
@@ -10,7 +10,29 @@ documented below remain separate from this successful source validation.
 
 ## GitHub Actions and Windows setup
 
-### Render backend deployment (prepared; not yet live)
+### Render backend deployment
+
+Backend service: [voltara-api](https://voltara-api-lfcp.onrender.com).
+Render Dashboard: [deploy history](https://dashboard.render.com/web/srv-dbi7533bc2fs73aa3f9g/deploys).
+The approved runtime bundle is published as [runtime-v1](https://github.com/joshuachacko1115-netizen/VOLTARA/releases/tag/runtime-v1).
+The first deployment passed the build and served health, metadata and manual
+assessment. A sample assessment exceeded the free plan's 512 MB memory limit;
+full-dataset readiness remains pending a capacity decision and verification.
+
+The CI/CD flow has two deployment targets:
+
+1. GitHub Actions compiles, tests, builds and packages the source/frontend.
+2. The dependent `deploy-pages` job publishes the Pages frontend.
+3. Render's **After CI Checks Pass** setting deploys `main` after GitHub checks
+   succeed. Render downloads/hash-checks the runtime bundle and runs actual
+   manual/both-dataset inference smoke checks before publishing the API.
+
+The backend CD runs in Render and appears in its Deploys history; it is not a
+second GitHub workflow. The Actions workflow is named **VOLTARA CI/CD** to reflect
+the frontend deployment it already contains. `/api/version` identifies the
+commit actually running on Render. No deploy-hook secret or API key is stored
+in the repository. The live service is managed directly through Render; the
+blueprint records the intended configuration and is not currently linked for sync.
 
 `render.yaml` describes the Starlette API using Python 3.13.6, one Uvicorn worker,
 Render's `$PORT`, and `/readyz` as its health check. `/healthz` reports process
@@ -41,7 +63,7 @@ Conversion requires the original processed EV feature tables for score checks.
 Outputs are under ignored `dist/`; they are for inference and do not preserve
 platform-specific RNG state for continued training. The validated deployment ZIP
 is approximately 131 MB. Publishing this bundle to a download host, choosing the
-Render workspace and approving any paid compute are still pending.
+paid compute are still pending. The workspace and release publication are approved.
 
 Once real inference works locally, create the runtime bundle:
 
@@ -53,7 +75,7 @@ This first checks manual assessment and a held-out sample from each dataset;
 only then does it produce ignored `dist/voltara-runtime.zip` and print SHA256.
 Store that archive at a trusted HTTPS download location accessible during Render
 builds, respecting dataset redistribution permissions. Set the following Render
-environment variables (the blueprint prompts for them):
+environment variables (the blueprint records the public release URL and digest):
 
 - `VOLTARA_ASSET_BUNDLE_URL`: the HTTPS archive download URL.
 - `VOLTARA_ASSET_BUNDLE_SHA256`: the printed digest.
@@ -69,7 +91,9 @@ The blueprint selects the free plan to avoid allocating paid resources implicitl
 this is not a claim that the full model set fits it. The existing RUL model alone
 is about 379 MB, and the full runtime needs more memory after loading data and
 other models. A larger compute plan may be required and requires your approval.
-No Render service has been created or verified yet.
+The service is now live on the free plan; health, metadata and manual inference
+passed. Render confirmed an out-of-memory kill during a sample assessment.
+Do not treat the current free deployment as full-dataset ready.
 
 After `/readyz`, `/api/meta`, manual assessment and both sample routes pass on the
 live Render URL, set GitHub's **repository Actions variable**
@@ -94,8 +118,8 @@ assessment. These controls are disabled, example-output numbers are hidden,
 and the page links to instructions for running the full application locally.
 No models, raw data, credentials, reports or Python server files are deployed.
 The Python app's existing API behavior is preserved when run locally. Hosting
-live inference requires a separate Python-capable service; no such service is
-created or configured by this Pages deployment.
+live inference uses the separate Render service above. Pages stays in preview
+mode until that backend passes full-dataset verification.
 
 To check deployment, open **Actions > VOLTARA CI**, confirm both jobs succeed,
 then follow the `github-pages` environment URL. Pages deployment status is

@@ -19,6 +19,6 @@ services:
       - key: ALLOWED_ORIGINS
         value: https://joshuachacko1115-netizen.github.io
       - key: VOLTARA_ASSET_BUNDLE_URL
-        sync: false
+        value: https://github.com/joshuachacko1115-netizen/VOLTARA/releases/download/runtime-v1/voltara-runtime.zip
       - key: VOLTARA_ASSET_BUNDLE_SHA256
-        sync: false
+        value: 6c50154797ee9558ddbe606e308aef8a7221a032905dbfb528cc2a5da4ed50d9

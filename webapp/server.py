@@ -259,6 +259,10 @@ def health(request: Request) -> Response:
     return JSONResponse({"status": "ok"})
 
 
+def version(request: Request) -> Response:
+    return JSONResponse({"commit": os.environ.get("RENDER_GIT_COMMIT", "local")})
+
+
 def ready(request: Request) -> Response:
     try:
         quick_models()
@@ -278,6 +282,7 @@ app = Starlette(middleware=[Middleware(
     allow_methods=["GET", "POST"], allow_headers=["Content-Type"],
 )], routes=[
     Route("/healthz", health),
+    Route("/api/version", version),
     Route("/readyz", ready),
     Route("/", index),
     Route("/api/meta", meta),
