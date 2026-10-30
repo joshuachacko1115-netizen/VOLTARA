@@ -1,9 +1,24 @@
 # Data: raw NASA ZIPs and everything derived from them (2.5 GB); rebuild with `python -m src.run_pipeline`.
-data/
-!data/**/.gitkeep
+/data/
+!/data/**/.gitkeep
 .venv/
 __pycache__/
 *.pyc
 .pytest_cache/
 .DS_Store
 .streamlit/secrets.toml
+logs/
+.venv-*/
+dist/
+build/
+*.egg-info/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+__MACOSX/
+# Keep previously tracked artifacts; do not add new generated outputs.
+/models/*.joblib
+/models/*.json
+/reports/

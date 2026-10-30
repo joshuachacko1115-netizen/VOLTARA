@@ -2,8 +2,8 @@
   "dataset": "Battery Aging",
   "model": "Random Forest",
   "feature_set": "A: charge+impedance",
-  "loco_MAE": 0.020599837861467886,
-  "loco_RMSE": 0.02798782324589464,
+  "loco_MAE": 0.020599837861467896,
+  "loco_RMSE": 0.027987823245894654,
   "loco_R2": 0.9074135598074673,
   "target": "soh",
   "features": [

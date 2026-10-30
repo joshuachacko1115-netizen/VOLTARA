@@ -17,6 +17,10 @@ import pandas as pd
 try:
     import torch
     from torch import nn
+    # PyTorch and XGBoost each ship an OpenMP runtime. With both loaded in one process
+    # (as in run_pipeline) torch's parallel kernels can deadlock on macOS. The windows
+    # here are tiny, so one thread costs little and avoids OpenMP regions entirely.
+    torch.set_num_threads(1)
     HAVE_TORCH = True
 except Exception:  # pragma: no cover
     HAVE_TORCH = False

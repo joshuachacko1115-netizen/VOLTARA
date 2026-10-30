@@ -69,3 +69,38 @@ def test_censoring_aware_rul_variant_loads_and_says_so():
     assert aware.rul_note.iloc[0] != default.rul_note.iloc[0]
     with pytest.raises(ValueError):
         VoltaraPredictor("randomized_usage", rul_variant="nope")
+
+
+@pytest.mark.parametrize("dataset,cells", [("battery_aging", ["B0018", "B0036"]),
+                                           ("randomized_usage", ["RW9", "RW11"])])
+def test_anomaly_flags_match_the_pipeline_on_valid_rows(dataset, cells):
+    """Same forest, same features: inference must flag exactly the pipeline's (valid-row) anomalies."""
+    import pandas as pd
+    from src.config import REPORTS_DIR
+    from src.inference.predict import example_history
+    tag = "ba" if dataset == "battery_aging" else "rw"
+    ref = pd.read_csv(REPORTS_DIR / "results" / f"anomalies_{tag}.csv")
+    data = pd.read_parquet(PROCESSED_DIR / ("ba_cycles.parquet" if tag == "ba" else "rw_checks.parquet"))
+    key = "cycle_number" if tag == "ba" else "check_id"
+    ref = ref.merge(data[["cell", key, "is_valid"]], on=["cell", key])
+    p = VoltaraPredictor(dataset)
+    for cell in cells:
+        pred = p.predict(example_history(dataset, cell))
+        order = p.order_col
+        expected = ref[(ref.cell == cell) & ref.is_valid]
+        exp_vals = set(expected[order].round(6)) if order in expected else set(
+            data[(data.cell == cell) & data[key].isin(expected[key])][order].round(6))
+        assert set(pred[pred.anomaly_flag][order].round(6)) == exp_vals, cell
+
+
+def test_input_coverage_and_status():
+    p = VoltaraPredictor("battery_aging")
+    hist = _demo_history("battery_aging", "B0005")
+    full = p.predict(hist)
+    # early cycles precede the first impedance test, so they are "partial"; later rows are complete
+    assert full.prediction_status.iloc[-1] == "ok" and full.soh_input_coverage.iloc[-1] == 1
+    assert (full.prediction_status != "insufficient inputs").all()
+    blank = hist[["cycle_number"]].copy()
+    out = p.predict(blank)
+    assert (out.prediction_status == "insufficient inputs").all()
+    assert out.energy_retention_source.iloc[0].startswith("proxy: predicted SoH")

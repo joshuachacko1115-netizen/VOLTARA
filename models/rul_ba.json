@@ -18,7 +18,7 @@
     "dis_t_max",
     "rest_before_h"
   ],
-  "loco_MAE": 33.156692108874765,
+  "loco_MAE": 33.15669210887476,
   "loco_RMSE": 49.883807163015675,
   "loco_R2": -0.2130982484733599,
   "feature_ranges": {

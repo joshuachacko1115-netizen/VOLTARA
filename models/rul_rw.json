@@ -1,6 +1,6 @@
 {
   "dataset": "Randomized Usage",
-  "model": "Gradient Boosting",
+  "model": "XGBoost",
   "target": "rul_efc",
   "unit": "EFC",
   "features": [
@@ -20,9 +20,9 @@
     "dist_skewed_low",
     "dist_uniform"
   ],
-  "loco_MAE": 32.33733021116069,
-  "loco_RMSE": 50.09270054636513,
-  "loco_R2": 0.7286921367294836,
+  "loco_MAE": 31.481432307956826,
+  "loco_RMSE": 52.66304325921121,
+  "loco_R2": 0.7001352650272181,
   "feature_ranges": {
     "soh_roll_med3": [
       0.8159574870069171,

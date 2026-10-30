@@ -122,3 +122,9 @@ def causal_initial(values, n: int = 3) -> np.ndarray:
     """
     v = np.asarray(values, dtype=float)
     return np.array([np.median(v[:min(k + 1, n)]) for k in range(len(v))])
+
+
+def residual_vs_recent(values, window: int) -> np.ndarray:
+    """Value minus the median of the previous `window` values (causal; NaN for the first row)."""
+    s = pd.Series(np.asarray(values, dtype=float))
+    return (s - s.shift(1).rolling(window, min_periods=1).median()).to_numpy()

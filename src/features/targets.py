@@ -22,7 +22,8 @@ import numpy as np
 import pandas as pd
 
 from src.config import BA_CELL_INFO, BA_MODEL_CELLS, BA_RATED_CAPACITY_AH, EOL_SOH
-from src.preprocessing.cleaning import causal_initial, causal_rolling, causal_rolling_slope, hampel_flags
+from src.preprocessing.cleaning import (causal_initial, causal_rolling, causal_rolling_slope, hampel_flags,
+                                        residual_vs_recent)
 
 MIN_EOL_CYCLE = 10
 
@@ -110,8 +111,7 @@ def ba_targets_and_trends(c: pd.DataFrame) -> pd.DataFrame:
         c.loc[v.index, "fade_slope_20"] = 100 * causal_rolling_slope(cap, cyc, window=20)
         # Causal reference: rows 0-1 must not see cycles 2-3 (soh_initial above is descriptive only).
         c.loc[v.index, "capacity_fade_ah"] = causal_initial(cap, 3) - med5
-        prev5 = pd.Series(cap).shift(1).rolling(5, min_periods=1).median().to_numpy()
-        c.loc[v.index, "cap_resid_prev5"] = cap - prev5
+        c.loc[v.index, "cap_resid_prev5"] = residual_vs_recent(cap, 5)
     c = add_rul(c, "cycle_number", "eol_cycle", "rul_cycles")
     c.loc[~c.is_valid, "rul_cycles"] = np.nan
     # Cells that are at the EOL threshold almost from the start (B0033/B0034 at 4 A:
@@ -140,8 +140,7 @@ def rw_targets_and_trends(c: pd.DataFrame) -> pd.DataFrame:
         # SoH change per 100 EFC over the last 4 / 8 checks (negative = fading).
         c.loc[v.index, "fade_slope_4"] = 100 * causal_rolling_slope(soh, efc, window=4)
         c.loc[v.index, "fade_slope_8"] = 100 * causal_rolling_slope(soh, efc, window=8)
-        prev3 = pd.Series(soh).shift(1).rolling(3, min_periods=1).median().to_numpy()
-        c.loc[v.index, "cap_resid_prev3"] = soh - prev3
+        c.loc[v.index, "cap_resid_prev3"] = residual_vs_recent(soh, 3)
     c = add_rul(c, "efc", "eol_efc", "rul_efc")
     c.loc[~c.is_valid, "rul_efc"] = np.nan
     # r_pulse is only measured in some checks; carry the last measurement forward (causal).

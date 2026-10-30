@@ -89,3 +89,25 @@ def feature_ranges(df: pd.DataFrame, features: list[str]) -> dict:
     q = df[features].quantile([0.01, 0.99])
     return {f: [None if pd.isna(q.at[0.01, f]) else float(q.at[0.01, f]),
                 None if pd.isna(q.at[0.99, f]) else float(q.at[0.99, f])] for f in features}
+
+
+def as_object(X):
+    """Categories as plain Python objects with NaN for missing. A column that is entirely
+    missing (e.g. 'chemistry unknown' at inference) would otherwise arrive as float and
+    break the encoders, which were fitted on text. Lives here, not in a script, so that
+    pickled pipelines can find it when loaded elsewhere."""
+    X = pd.DataFrame(X).astype(object)
+    return X.where(X.notna(), np.nan)
+
+
+def apply_interval(interval: dict, pred, bounds=(None, None)) -> tuple[np.ndarray, np.ndarray]:
+    """Prediction interval from a calibrated `interval` dict (src/models/ev_intervals.py):
+    half-width looked up by the bin of the predicted value, clipped to `bounds`."""
+    pred = np.atleast_1d(np.asarray(pred, float))
+    h = np.asarray(interval["half_width"])[np.digitize(pred, interval["bin_edges"])]
+    lo, hi = pred - h, pred + h
+    if bounds[0] is not None:
+        lo = np.maximum(lo, bounds[0])
+    if bounds[1] is not None:
+        hi = np.minimum(hi, bounds[1])
+    return lo, hi

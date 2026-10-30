@@ -1,6 +1,6 @@
 {
   "dataset": "Randomized Usage",
-  "model": "Gradient Boosting, + censored, Buckley-James",
+  "model": "XGBoost, + censored, Buckley-James",
   "target": "rul_efc",
   "unit": "EFC",
   "features": [
@@ -87,9 +87,9 @@
       1.0
     ]
   },
-  "loco_MAE": 34.22437577247913,
-  "loco_RMSE": 52.1907934108311,
-  "loco_R2": 0.7054891574837374,
-  "censored_frac_above_bound": 0.8108108108108109,
-  "censored_mean_shortfall": 5.892668411281563
+  "loco_MAE": 34.80661816462335,
+  "loco_RMSE": 54.60013811482005,
+  "loco_R2": 0.6776698186902703,
+  "censored_frac_above_bound": 0.7567567567567568,
+  "censored_mean_shortfall": 5.342329730786903
 }

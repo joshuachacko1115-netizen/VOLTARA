@@ -78,6 +78,29 @@ _BA_GROUPS = [
 BA_MODEL_CELLS = ["B0005", "B0006", "B0007", "B0018", "B0029", "B0030", "B0031", "B0032",
                   "B0033", "B0034", "B0036"]
 
+# --------------------------------------------------------------------------- #
+# EV pack datasets (synthetic, CSV). Recognised by their header, not their file or
+# folder name. Both are pack/vehicle level and use SoH in % of nominal capacity, so
+# they are not comparable with the NASA single-cell lab data and are modelled apart.
+# --------------------------------------------------------------------------- #
+EV_DIR = PROCESSED_DIR / "ev"
+EV_DATASETS = {
+    "ev_degradation": {
+        "signature": {"battery_id", "observation_id", "state_of_health_pct", "remaining_useful_life_cycles"},
+        "title": "EV Battery Health & Degradation (synthetic, 2,600 packs, 50,000 observations)",
+        "unit_col": "battery_id",
+    },
+    "ev_telematics": {
+        "signature": {"Vehicle_ID", "Trip_ID", "SOH_pct", "Range_Remaining_km"},
+        "title": "EV Battery Health & Telematics (synthetic, 5,374 vehicles, 20,000 trips)",
+        "unit_col": "vehicle_id",
+    },
+}
+# Share of batteries / vehicles held out as the final test set. They are chosen once
+# (seeded, stratified by chemistry) before any modelling choice and are only scored at the end.
+EV_TEST_FRACTION = 0.20
+EV_EOL_SOH_PCT = 80.0
+
 BA_CELL_INFO = {
     cell: {"cutoff_v": v, "profile": prof, "nominal_current_a": cur, "readme_ambient_c": amb,
            "protocol_group": "+".join(cells)}

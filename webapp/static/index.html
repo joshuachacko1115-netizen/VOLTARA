@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VOLTARA · EV Intelligence</title>
+  <meta name="description" content="Battery health, range, remaining life and anomalies for an electric vehicle, from validated models.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script>/* theme before first paint: saved choice, else the system setting */
+    try { const t = localStorage.getItem("voltara-theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="/static/app.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%230b0b0c'/%3E%3Cpath d='M18 5 9 18h6l-2 9 9-13h-6z' fill='%23c8ff3d'/%3E%3C/svg%3E">
+</head>
+<body>
+<div class="bg" aria-hidden="true">
+  <span class="aurora a1"></span><span class="aurora a2"></span><span class="aurora a3"></span><span class="aurora a4"></span>
+  <span class="dots"></span><span class="dots lit"></span>
+</div>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- SVG icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13.5 2 4.5 13.5h6L9.5 22l9-11.5h-6z" fill="currentColor"/></symbol>
+  <symbol id="i-battery" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="7" width="17" height="10" rx="2.5"/><path d="M22 10.5v3"/><path d="M6.5 10.5v3M10 10.5v3M13.5 10.5v3"/></g></symbol>
+  <symbol id="i-route" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="6" r="2.5"/><path d="M8.5 18H15a3.5 3.5 0 0 0 0-7H9a3.5 3.5 0 0 1 0-7h6.5"/></g></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8 4.5 5.8v5.7c0 4.6 3.1 8.4 7.5 9.7 4.4-1.3 7.5-5.1 7.5-9.7V5.8z"/><path d="M12 8v4.5M12 15.8v.2"/></g></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 2.5c.6 4.6 2.9 6.9 7.5 7.5-4.6.6-6.9 2.9-7.5 7.5-.6-4.6-2.9-6.9-7.5-7.5 4.6-.6 6.9-2.9 7.5-7.5zM19 15.5c.3 2 1.2 2.9 3 3.2-1.8.3-2.7 1.2-3 3.2-.3-2-1.2-2.9-3-3.2 1.8-.3 2.7-1.2 3-3.2z" fill="currentColor"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></g></symbol>
+  <symbol id="i-shuffle" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5M4 20 21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></g></symbol>
+  <symbol id="i-upload" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V4M7.5 8.5 12 4l4.5 4.5"/><path d="M4 15v3.5A1.5 1.5 0 0 0 5.5 20h13a1.5 1.5 0 0 0 1.5-1.5V15"/></g></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></g></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 2.4 17.5A2 2 0 0 0 4.1 20.5h15.8a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4.5M12 17v.2"/></g></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></g></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6 6 6M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/></g></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></g></symbol>
+</svg>
+
+<header class="topbar">
+  <a class="brand" href="/" aria-label="VOLTARA home">
+    <span class="mark"><svg><use href="#i-bolt"/></svg></span>
+    <span class="brand-text"><b>VOLTARA</b><small>EV Intelligence</small></span>
+  </a>
+  <nav class="top-right">
+    <a class="nav-link" href="#method">Methodology</a>
+    <button type="button" class="theme-btn" id="theme" aria-label="Switch between light and dark theme" title="Light / dark">
+      <svg class="sun"><use href="#i-sun"/></svg><svg class="moon"><use href="#i-moon"/></svg>
+    </button>
+    <span class="status" id="status"><i></i><span>Connecting…</span></span>
+  </nav>
+</header>
+
+<main class="wrap">
+  <section class="print-head" aria-hidden="true">
+    <div><b>VOLTARA · EV Intelligence report</b><span id="print-date"></span></div>
+    <dl id="print-inputs"></dl>
+  </section>
+  <section class="hero reveal">
+    <p class="eyebrow"><span class="eyebrow-dot"></span>Battery intelligence for electric vehicles</p>
+    <h1>Know your battery<br><span class="shine">before it tells you.</span></h1>
+    <p class="lede">State of health, remaining range, remaining useful life and anomaly checks, all from models
+      validated on batteries they never saw in training.</p>
+    <div class="hero-stats" id="hero-stats">
+      <div class="hstat"><b data-stat="degradation_soh">±0.56</b><span>SOH points, error on held-out<br>battery histories</span></div>
+      <div class="hstat"><b data-stat="quick_soh">±1.0</b><span>SOH points, error from<br>six manual inputs</span></div>
+      <div class="hstat"><b>20 %</b><span>of batteries held out,<br>scored once</span></div>
+    </div>
+  </section>
+
+  <div class="grid">
+    <!-- ============================== INPUT ============================== -->
+    <form class="card in-card reveal" id="form" novalidate autocomplete="off">
+      <span class="spot" aria-hidden="true"></span>
+      <header class="card-head">
+        <h2>EV Intelligence — Vehicle Assessment</h2>
+        <p class="sub">Demo input form</p>
+      </header>
+
+      <fieldset class="group">
+        <legend>Choose data source</legend>
+        <label class="radio"><input type="radio" name="source" value="sample" checked><span class="dot"></span><span>Use a sample battery dataset</span></label>
+        <label class="radio"><input type="radio" name="source" value="upload"><span class="dot"></span><span>Upload historical battery CSV</span></label>
+        <label class="radio"><input type="radio" name="source" value="manual"><span class="dot"></span><span>Enter vehicle information manually</span></label>
+        <p class="caption" id="source-caption">A predefined dataset will be used to demonstrate model predictions.</p>
+      </fieldset>
+
+      <div class="panel" data-for="sample">
+        <div class="seg" role="tablist" id="dataset-seg"></div>
+        <div class="row-select">
+          <div class="select-wrap">
+            <select id="unit" aria-label="Sample battery or vehicle"></select>
+            <svg class="chev"><use href="#i-chev"/></svg>
+          </div>
+          <button type="button" class="icon-btn" id="shuffle" title="Random sample" aria-label="Pick a random sample"><svg><use href="#i-shuffle"/></svg></button>
+        </div>
+        <div class="profile" id="profile-sample"></div>
+      </div>
+
+      <div class="panel" data-for="upload" hidden>
+        <label class="drop" id="drop">
+          <input type="file" id="file" accept=".csv,text/csv" hidden>
+          <span class="drop-icon"><svg><use href="#i-upload"/></svg></span>
+          <span class="drop-title" id="drop-title">Drop a CSV here or <u>browse</u></span>
+          <span class="drop-sub">One battery or vehicle, oldest row first, in either dataset's original columns.</span>
+        </label>
+        <p class="examples">Example files:
+          <a href="/api/example.csv?dataset=ev_degradation" download><svg><use href="#i-file"/></svg>battery packs</a>
+          <a href="/api/example.csv?dataset=ev_telematics" download><svg><use href="#i-file"/></svg>vehicle trips</a>
+        </p>
+        <div class="profile" id="profile-upload"></div>
+      </div>
+
+      <fieldset class="group" id="vehicle-group">
+        <legend>Vehicle type</legend>
+        <div id="vehicle-radios"></div>
+        <p class="caption lock-note" hidden>Taken from the data: these batteries come from cars and vans.</p>
+      </fieldset>
+
+      <label class="field" data-key="capacity">
+        <span class="label">Battery capacity (kWh)</span>
+        <input class="pill" id="capacity" type="number" inputmode="decimal" min="0.5" max="1000" step="0.1" value="60">
+        <em class="from-data">from data</em>
+      </label>
+
+      <div class="field soc">
+        <div class="soc-head">
+          <span class="label" id="soc-label">Current charge (SOC)</span>
+          <button type="button" class="reset" id="soc-reset" hidden>use data value</button>
+        </div>
+        <div class="soc-readout">
+          <output id="soc-out" for="soc"><span id="soc-val">80</span>%</output>
+          <div class="cell" aria-hidden="true"><div class="cell-fill" id="cell-fill"><i class="wave"></i></div><span class="cell-nub"></span></div>
+        </div>
+        <input id="soc" type="range" min="0" max="100" step="1" value="80" aria-labelledby="soc-label">
+        <div class="ticks"><span>0%</span><span>50%</span><span>100%</span></div>
+        <small class="hint" id="soc-hint"></small>
+      </div>
+
+      <label class="field" data-key="age">
+        <span class="label">Vehicle age (years)</span>
+        <input class="pill" id="age" type="number" inputmode="decimal" min="0" max="40" step="0.1" value="3">
+        <em class="from-data">from data</em>
+      </label>
+
+      <label class="field" data-key="odometer">
+        <span class="label">Odometer reading (km)</span>
+        <input class="pill" id="odometer" type="number" inputmode="numeric" min="0" max="3000000" step="100" value="45000">
+        <em class="from-data">estimate</em>
+      </label>
+
+      <label class="field" data-key="consumption">
+        <span class="label">Average energy consumption (kWh/100 km)</span>
+        <input class="pill" id="consumption" type="number" inputmode="decimal" min="1" max="400" step="0.1" value="16">
+        <small class="hint" id="cons-hint"></small>
+      </label>
+
+      <details class="adv" id="adv">
+        <summary><span>Improve the estimate</span><small>cell chemistry · climate</small><svg class="chev"><use href="#i-chev"/></svg></summary>
+        <div class="adv-body">
+          <span class="label">Cell chemistry</span>
+          <div class="chips" id="chem-chips"></div>
+          <p class="caption">Remaining useful life is only shown when the chemistry is known: without it the
+            model's error on held-out batteries is too large to be useful.</p>
+          <span class="label">Operating climate (optional)</span>
+          <div class="chips" id="climate-chips"></div>
+        </div>
+      </details>
+
+      <button class="cta" id="go" type="submit">
+        <span class="cta-fill" aria-hidden="true"></span>
+        <span class="cta-text">Preview expected output</span>
+        <svg class="cta-arrow"><use href="#i-arrow"/></svg>
+      </button>
+      <p class="form-error" id="form-error" role="alert" hidden></p>
+    </form>
+
+    <!-- ============================== OUTPUT ============================== -->
+    <section class="card out-card reveal" id="out" aria-live="polite">
+      <span class="spot" aria-hidden="true"></span>
+      <header class="card-head out-head">
+        <div>
+          <h2>EV Intelligence Dashboard</h2>
+          <p class="sub" id="out-sub">Illustrative layout · press <b>Preview expected output</b> to run the models</p>
+        </div>
+        <div class="head-actions">
+          <span class="risk" id="risk" hidden></span>
+          <button type="button" class="ghost-btn" id="report" hidden title="Opens the print dialog: choose “Save as PDF”"><svg><use href="#i-file"/></svg>Report</button>
+        </div>
+      </header>
+      <p class="stale" id="stale" hidden><svg><use href="#i-alert"/></svg>Inputs changed. Preview again to update.</p>
+
+      <div class="tiles" id="tiles">
+        <article class="tile" id="t-soh">
+          <span class="t-icon"><svg><use href="#i-battery"/></svg></span>
+          <p class="t-label">Battery health (SOH)</p>
+          <p class="t-value"><span class="num">86</span><span class="unit">%</span></p>
+          <p class="t-cap">Estimated model output</p>
+          <div class="meter" aria-hidden="true"><em class="band" hidden></em><i></i><b class="eol" title="End of life: 80 %"></b></div>
+        </article>
+        <article class="tile" id="t-range">
+          <span class="t-icon"><svg><use href="#i-route"/></svg></span>
+          <p class="t-label">Remaining range</p>
+          <p class="t-value"><span class="num">245</span><span class="unit">km</span></p>
+          <p class="t-cap">Illustrative estimate</p>
+          <div class="meter range" aria-hidden="true"><i></i><s></s></div>
+        </article>
+        <article class="tile" id="t-rul">
+          <span class="t-icon"><svg><use href="#i-clock"/></svg></span>
+          <p class="t-label">Remaining useful life</p>
+          <p class="t-value"><span class="num word">Estimated</span><span class="unit"></span></p>
+          <p class="t-cap">Cycles or time, based on model</p>
+        </article>
+        <article class="tile" id="t-anom">
+          <span class="t-icon"><svg><use href="#i-shield"/></svg></span>
+          <p class="t-label">Battery anomalies</p>
+          <p class="t-value"><span class="num word">Detected / None</span><span class="unit"></span></p>
+          <p class="t-cap">Based on available readings</p>
+          <span class="pulse" aria-hidden="true"></span>
+        </article>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="insights-head">
+        <h3><svg><use href="#i-spark"/></svg>Generated insights</h3>
+        <span class="tag" title="Sentences are written by fixed rules from the model outputs; no language model is involved.">rule-based</span>
+      </div>
+      <ul class="insights placeholder" id="insights">
+        <li>Battery degradation trend over recent cycles.</li>
+        <li>Potential abnormal voltage or temperature behaviour.</li>
+        <li>Estimated range under the stated consumption assumptions.</li>
+        <li>Suggested maintenance checks and battery-care practices.</li>
+      </ul>
+      <div class="warnings" id="warnings"></div>
+    </section>
+  </div>
+
+  <!-- ============================== DEEP DIVE ============================== -->
+  <section class="card deep" id="deep" hidden>
+    <span class="spot" aria-hidden="true"></span>
+    <div class="deep-grid">
+      <div class="gauge-col">
+        <h3 class="mini">Health overview</h3>
+        <div class="gauge">
+          <svg viewBox="0 0 200 200" aria-hidden="true">
+            <defs>
+              <linearGradient id="g-ring" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="var(--ring-a)"/><stop offset="1" stop-color="var(--ring-b)"/>
+              </linearGradient>
+            </defs>
+            <circle class="g-track" cx="100" cy="100" r="82"/>
+            <circle class="g-bar" id="g-bar" cx="100" cy="100" r="82"/>
+            <line class="g-eol" id="g-eol" x1="100" y1="10" x2="100" y2="28"/>
+          </svg>
+          <div class="g-center"><b id="g-num">0</b><span>% SOH</span></div>
+        </div>
+        <dl class="kv" id="kv"></dl>
+      </div>
+      <div class="chart-col">
+        <div class="chart-head">
+          <h3 class="mini" id="chart-title">Battery degradation trend</h3>
+          <div class="legend" id="legend"></div>
+        </div>
+        <div class="chart" id="chart"></div>
+      </div>
+      <div class="find-col">
+        <h3 class="mini">Anomaly findings</h3>
+        <ul class="findings" id="findings"></ul>
+      </div>
+    </div>
+  </section>
+
+  <footer class="method" id="method">
+    <h3>How the numbers are made</h3>
+    <div class="method-grid">
+      <p><b>SOH and RUL</b> are gradient-boosted models. Their errors are measured on 20 % of batteries and
+        vehicles held out before training and scored once. Manual entry uses a smaller model on age and
+        equivalent full cycles (odometer × consumption ÷ capacity).</p>
+      <p><b>Range</b> is arithmetic: capacity × SOH × charge ÷ consumption. It is not a trained range model, and
+        it is only as good as the consumption you enter.</p>
+      <p><b>Anomalies</b> combine statistical outlier flags (each reading against the battery's own recent
+        readings) with fixed temperature, voltage and resistance thresholds. They need a history of readings.</p>
+      <p><b>Insights</b> are sentences written by fixed rules from the numbers above; no language model is
+        involved. Scooters and buses are outside the training data and are labelled as extrapolation.</p>
+    </div>
+    <p class="fine">VOLTARA v0.1 · models trained on two synthetic EV datasets · results are estimates, not a substitute for a capacity test.</p>
+  </footer>
+</main>
+
+<div class="toast" id="toast" role="status" hidden></div>
+<script src="/static/app.js" defer></script>
+</body>
+</html>

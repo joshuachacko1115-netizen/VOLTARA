@@ -49,3 +49,14 @@ def test_causal_slope_uses_only_past():
     s = causal_rolling_slope(y, window=5)
     assert np.isnan(s[:2]).all()              # fewer than 3 points -> undefined
     assert np.allclose(s[2:11], 0)            # unaffected by the later ramp
+
+
+def test_residual_vs_recent_is_causal_and_matches_definition():
+    import numpy as np
+    from src.preprocessing.cleaning import residual_vs_recent
+    x = np.array([1.0, 2.0, 4.0, 3.0, 10.0, 2.0])
+    r = residual_vs_recent(x, 3)
+    assert np.isnan(r[0])
+    assert r[3] == 3.0 - np.median([1.0, 2.0, 4.0])
+    assert r[4] == 10.0 - np.median([2.0, 4.0, 3.0])
+    np.testing.assert_array_equal(residual_vs_recent(x[:4], 3), r[:4])
