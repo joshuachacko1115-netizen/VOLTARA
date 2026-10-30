@@ -12,7 +12,7 @@ documented below remain separate from this successful source validation.
 
 ### Render backend deployment
 
-The deployment is being optimized for the free plan at the user's request.
+The deployment is optimized for the free plan at the user's request.
 `MappedForestRegressor` stores all original splits and leaf values in compact,
 file-backed arrays, mapping one tree at a time instead of loading the entire
 large RUL forest into process memory. It preserves the trained model; it is not
@@ -28,15 +28,17 @@ Reproduce the free-tier runtime (original models remain unchanged):
 .\.venv-ci\Scripts\python.exe -m scripts.package_runtime --models-dir dist/render-free/models
 ```
 
-The optimized archive is about 80 MB. Its deployment is `runtime-free-v2`; live
-free-tier memory and API verification is still required before enabling Pages.
+The optimized archive is about 80 MB. Its deployment is `runtime-free-v2`.
+Live health, metadata, manual assessment, both sample datasets and CSV assessments
+passed on the free service. CSV results matched the corresponding sample results.
 
 Backend service: [voltara-api](https://voltara-api-lfcp.onrender.com).
 Render Dashboard: [deploy history](https://dashboard.render.com/web/srv-dbi7533bc2fs73aa3f9g/deploys).
-The approved runtime bundle is published as [runtime-v1](https://github.com/joshuachacko1115-netizen/VOLTARA/releases/tag/runtime-v1).
+The current runtime bundle is published as [runtime-free-v2](https://github.com/joshuachacko1115-netizen/VOLTARA/releases/tag/runtime-free-v2).
 The first deployment passed the build and served health, metadata and manual
 assessment. A sample assessment exceeded the free plan's 512 MB memory limit;
-full-dataset readiness remains pending a capacity decision and verification.
+the file-backed optimization resolved this in the verified sample/CSV paths.
+No paid compute or workspace upgrade was enabled.
 
 The CI/CD flow has two deployment targets:
 
@@ -81,13 +83,13 @@ To reproduce the conversion on trusted local files:
 Conversion requires the original processed EV feature tables for score checks.
 Outputs are under ignored `dist/`; they are for inference and do not preserve
 platform-specific RNG state for continued training. The validated deployment ZIP
-is approximately 131 MB. Publishing this bundle to a download host, choosing the
-paid compute are still pending. The workspace and release publication are approved.
+for the first recovery was approximately 131 MB; the active file-backed version
+is about 80 MB. Both approved releases preserve the original local artifacts.
 
 Once real inference works locally, create the runtime bundle:
 
 ```powershell
-.\.venv-ci\Scripts\python.exe -m scripts.package_runtime
+.\.venv-ci\Scripts\python.exe -m scripts.package_runtime --models-dir dist/render-free/models
 ```
 
 This first checks manual assessment and a held-out sample from each dataset;
@@ -104,15 +106,12 @@ and runs real inference smoke checks. Missing assets or broken predictions fail
 the build. Joblib files execute Python when loaded, so only use bundles you trust.
 Do not commit archives, signed URLs, tokens or deployment secrets to the repository.
 
-Connect Render to Codex and the GitHub repository, then create the service from
-the blueprint. Auto-deployment is configured to wait until GitHub checks pass.
-The blueprint selects the free plan to avoid allocating paid resources implicitly;
-this is not a claim that the full model set fits it. The existing RUL model alone
-is about 379 MB, and the full runtime needs more memory after loading data and
-other models. A larger compute plan may be required and requires your approval.
-The service is now live on the free plan; health, metadata and manual inference
-passed. Render confirmed an out-of-memory kill during a sample assessment.
-Do not treat the current free deployment as full-dataset ready.
+Render is connected to Codex and the GitHub app is restricted to VOLTARA.
+The service is configured to wait until GitHub checks pass. It remains on the
+free plan. The original 379 MB RUL model is represented by file-backed learned
+nodes at runtime; its predictions are preserved. The initial out-of-memory
+failure was resolved for the verified manual, sample and CSV paths. These are
+functional smoke checks, not a concurrency/load-capacity guarantee.
 
 After `/readyz`, `/api/meta`, manual assessment and both sample routes pass on the
 live Render URL, set GitHub's **repository Actions variable**
@@ -131,16 +130,13 @@ site build without deploying. Only the deployment job receives `pages: write`
 and `id-token: write`; its environment is `github-pages`. The repository's Pages
 publishing source is GitHub Actions.
 
-GitHub Pages serves static assets only. The deployed site is explicitly a
-frontend preview: it does not run Starlette, Streamlit, model inference or CSV
-assessment. These controls are disabled, example-output numbers are hidden,
-and the page links to instructions for running the full application locally.
-No models, raw data, credentials, reports or Python server files are deployed.
-The Python app's existing API behavior is preserved when run locally. Hosting
-live inference uses the separate Render service above. Pages stays in preview
-mode until that backend passes full-dataset verification.
+GitHub Pages serves the frontend assets; Render performs inference. The
+`VOLTARA_API_BASE_URL` repository variable points to the verified Render origin,
+so the Pages build enables the form, samples and CSV assessments. If that variable
+is removed, the same builder produces a clearly labelled frontend-only preview.
+Models, datasets and Python server files are not published as Pages assets.
 
-To check deployment, open **Actions > VOLTARA CI**, confirm both jobs succeed,
+To check deployment, open **Actions > VOLTARA CI/CD**, confirm both jobs succeed,
 then follow the `github-pages` environment URL. Pages deployment status is
 separate from the previously documented model-loading failures.
 
