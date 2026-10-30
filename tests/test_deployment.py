@@ -27,6 +27,7 @@ def test_runtime_bundle_rejects_unsafe_and_unrelated_paths():
     assert allowed('models/ev_quick_soh.joblib')
     assert allowed('data/raw/ev/sample.csv')
     assert allowed('reports/results/ev_split_units.csv')
+    assert allowed('models/ev_degradation_rul.forest/tree_0000.npy')
     for name in ('../outside.csv', '/models/ev_x.joblib', 'models/../../secret',
                  'webapp/server.py', 'models/ev_x.exe', 'data/raw/../../../secret.csv',
                  'C:/models/ev_x.joblib'):

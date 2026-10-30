@@ -17,6 +17,7 @@ def main():
     validate_runtime(models)
     from src.data.ev_loaders import find_ev_files
     files = [(p, 'models/' + p.name) for pattern in ('ev_*.joblib', 'ev_*.json') for p in models.glob(pattern)]
+    files += [(p, 'models/' + p.relative_to(models).as_posix()) for p in models.glob('ev_*.forest/*.npy')]
     files += [(p, p.relative_to(ROOT).as_posix()) for p in
               [ROOT / 'reports/results/ev_split_units.csv', *find_ev_files().values()]]
     output = ROOT / 'dist/voltara-runtime.zip'

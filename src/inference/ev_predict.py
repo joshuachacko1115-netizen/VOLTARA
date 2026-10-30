@@ -20,6 +20,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import json
 from pathlib import Path
 
 import joblib
@@ -41,6 +42,9 @@ class EVPredictor:
         self.dataset = dataset
         self.models = {}
         for path in sorted(models_dir.glob("ev_*.joblib")):
+            metadata = path.with_suffix(".json")
+            if metadata.exists() and json.loads(metadata.read_text())["dataset"] != dataset:
+                continue
             obj = joblib.load(path)
             if obj["meta"]["dataset"] == dataset:
                 self.models[obj["meta"]["task"]] = obj

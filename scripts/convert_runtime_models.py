@@ -55,11 +55,13 @@ def verify(obj):
     if not np.isclose(observed, expected, atol=1e-8, rtol=0):
         raise ValueError(f"{meta['task']}: score changed ({observed} != {expected})")
     print(f"{meta['task']}: held-out score matches ({observed:.12g})", flush=True)
+    return pred
 
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--output', type=Path, default=ROOT / 'dist/render-runtime/models')
+    parser.add_argument('--mapped-forest', action='store_true', help='Use exact file-backed storage for large regression forests')
     args = parser.parse_args()
     output = args.output.resolve()
     if output == (ROOT / 'models').resolve():
@@ -67,11 +69,20 @@ def main():
     output.mkdir(parents=True, exist_ok=True)
     for source in sorted((ROOT / 'models').glob('ev_*.joblib')):
         obj = load_portable(source)
-        verify(obj)
+        expected_predictions = verify(obj)
+        if args.mapped_forest and obj['meta']['kind'] == 'regression':
+            from sklearn.ensemble import RandomForestRegressor
+            from src.inference.mapped_forest import export_forest
+            model = obj['pipeline'].named_steps['model']
+            if isinstance(model, RandomForestRegressor):
+                obj['pipeline'].steps[-1] = ('model', export_forest(model, output / (source.stem + '.forest')))
+                del model
+        import src.config as config
+        config.MODELS_DIR = output
         destination = output / source.name
         joblib.dump(obj, destination, compress=3)
         # Check normal loading without the compatibility hook.
-        verify(joblib.load(destination))
+        np.testing.assert_allclose(verify(joblib.load(destination)), expected_predictions, rtol=1e-13, atol=1e-9)
         print(f'Exported {destination.name}: {destination.stat().st_size} bytes', flush=True)
     for source in (ROOT / 'models').glob('ev_*.json'):
         (output / source.name).write_bytes(source.read_bytes())

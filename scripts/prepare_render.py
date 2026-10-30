@@ -21,6 +21,9 @@ def allowed(name):
         return False
     return ((len(path.parts) == 2 and path.parts[0] == 'models'
              and path.name.startswith('ev_') and path.suffix in {'.joblib', '.json'})
+            or (len(path.parts) == 3 and path.parts[0] == 'models'
+                and path.parts[1].startswith('ev_') and path.parts[1].endswith('.forest')
+                and path.name.startswith('tree_') and path.suffix == '.npy')
             or (len(path.parts) >= 3 and path.parts[:2] == ('data', 'raw') and path.suffix == '.csv')
             or name == 'reports/results/ev_split_units.csv')
 

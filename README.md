@@ -12,6 +12,25 @@ documented below remain separate from this successful source validation.
 
 ### Render backend deployment
 
+The deployment is being optimized for the free plan at the user's request.
+`MappedForestRegressor` stores all original splits and leaf values in compact,
+file-backed arrays, mapping one tree at a time instead of loading the entire
+large RUL forest into process memory. It preserves the trained model; it is not
+a smaller replacement model. The conversion compares all held-out predictions
+with the original, as well as recorded scores. 36 backend/adapter tests passed
+against the optimized bundle before deployment. The predictor also avoids loading
+unrelated datasets' model files. Render uses the CPU-only XGBoost distribution.
+
+Reproduce the free-tier runtime (original models remain unchanged):
+
+```powershell
+.\.venv-ci\Scripts\python.exe -m scripts.convert_runtime_models --mapped-forest --output dist/render-free/models
+.\.venv-ci\Scripts\python.exe -m scripts.package_runtime --models-dir dist/render-free/models
+```
+
+The optimized archive is about 80 MB. Its deployment is `runtime-free-v2`; live
+free-tier memory and API verification is still required before enabling Pages.
+
 Backend service: [voltara-api](https://voltara-api-lfcp.onrender.com).
 Render Dashboard: [deploy history](https://dashboard.render.com/web/srv-dbi7533bc2fs73aa3f9g/deploys).
 The approved runtime bundle is published as [runtime-v1](https://github.com/joshuachacko1115-netizen/VOLTARA/releases/tag/runtime-v1).

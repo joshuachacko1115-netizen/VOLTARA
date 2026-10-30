@@ -4,7 +4,7 @@ scipy>=1.13,<2
 pandas>=2.2,<3
 scikit-learn==1.9.1
 joblib>=1.4
-xgboost==3.4.1
+xgboost-cpu==3.4.1
 matplotlib>=3.8
 altair>=5,<7
 starlette>=0.40
